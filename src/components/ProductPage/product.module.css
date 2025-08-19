@@ -1,0 +1,22 @@
+.liste {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 23%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
