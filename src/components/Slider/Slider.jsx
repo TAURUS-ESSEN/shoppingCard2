@@ -2,37 +2,59 @@ import styles from './slider.module.css';
 import {useState, useEffect} from 'react';
 import { useOutletContext, Link } from "react-router-dom";
 
-export default function Slider() {
-    const [products, setProducts] = useOutletContext();
-    const [index, setIndex] = useState(0)
+export default function Slider({products}) {
+    // const [products] = useOutletContext();
+    const [index, setIndex] = useState(0);
+    const [paused, setPaused] = useState(false);
 
     useEffect(()=>{
+        if (products.length < 3 || paused) return; 
         const tiktak = setInterval(()=> {
             setIndex(prev => (prev >= products.length - 3 ? 0 : prev + 1)) 
         }, 3000)
         return () => clearInterval(tiktak)
-        },[products])
+        },[products.length, paused])
 
     return (
         <>
             <div className={styles.component}>
-                
+                <div className={styles.arrows}>
+                <button 
+                    onClick={() => {setIndex(prev => Math.max(prev - 1, 0));}} // не дает индексу уйти в минус
+                    onMouseEnter={() => setPaused(true)} 
+                    onMouseLeave={() => setPaused(false)}
+                >
+                    {`<<<`}
+                </button>
+            </div>
         <div className={styles.container}>
-            <div className={styles.cardsSlider} style={{ transform: `translateX(-${index * (100 / 3)}%)` }}>
+            <ul className={styles.cardsSlider} 
+            style={{ transform: `translateX(-${index * (100 / 3)}%)` }}
+                onMouseEnter={() => setPaused(true)} 
+                onMouseLeave={() => setPaused(false)}>
                 {/* {products.slice(products.length-6,products.length).map(product=> { */}
                 {products.slice(0,6).map(product=> {
                     return (
-                        <div className={styles.card}>
+                        <li className={styles.card} key={product.id}>
                             <Link to={`/shop/product/${product.id}`} state={{ product }}>
-                                <div className={styles.cardImg}><img src={product.image} width='50px'/></div>
+                                <div className={styles.cardImg}><img src={product.image} alt={product.title}/></div>
                                 <div className={styles.cardTitle}>{product.title}</div>
                                 <div className={styles.cardPrice}>{product.price}</div>
                             </Link>
-                        </div>
+                        </li>
                     )
                 })}
-            </div>
+            </ul>
         </div>
+                    <div className={styles.arrows}>
+                <button 
+                    onClick={() => {setIndex(prev => Math.min(prev + 1, products.length - 3));}} 
+                    onMouseEnter={() => setPaused(true)} 
+                    onMouseLeave={() => setPaused(false)}
+                >
+                    {`>>>`}
+                </button>
+            </div>
         </div>
         </>
     )
