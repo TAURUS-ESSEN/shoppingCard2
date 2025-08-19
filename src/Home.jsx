@@ -19,10 +19,14 @@ export default function Home () {
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, aspernatur, tenetur debitis voluptatibus tempora deleniti iure id voluptate ut saepe cum eaque atque expedita sint vitae modi nihil sunt minus! Modi minima repudiandae inventore dolorem, voluptate illo accusantium enim quos.
                 <button onClick={resetFilter}>Go shopping</button>
             </div>
-            <div className="sliderContainer"> <Slider products={products.slice(0,6)}/></div>
+            <div className="sliderContainer"> 
+                <Slider products={products.slice(0,6)}/>
+            </div>
             <div className="categoryBlock">
                 {category.map(c=>{
-                    return <div><button onClick={()=>{categoryFilter(c)}}>{c}</button></div>
+                    return <div>
+                        <button onClick={()=>{categoryFilter(c)}} className="categoryButton">{c}</button>
+                        </div>
                 })}
             </div>
         </>

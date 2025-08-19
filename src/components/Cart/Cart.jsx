@@ -60,7 +60,7 @@ function dec(id) {
 </div>
 
                     <div className={styles.total}>
-                        {/* totalPrice: {cartQ.map(({ id, qty }) => {} */} {total}
+                        {/* totalPrice: {cartQ.map(({ id, qty }) => {} */} {total.toFixed(2)}
                     </div>
                 </div>
           ) : (<div>Cart is empty</div>)

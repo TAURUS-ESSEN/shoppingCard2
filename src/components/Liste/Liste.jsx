@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './liste.module.css';
 import { Link } from 'react-router-dom';
-import Pagination from '../Pagination/Pagination'
 import { useOutletContext } from "react-router-dom";
 
 export default function Liste() {

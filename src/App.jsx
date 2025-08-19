@@ -27,7 +27,7 @@ function App() {
   
   return (
     <>
-        <Header cart={cart} setCart={setCart}/>
+        <Header cart={cart} setCart={setCart} products={products}/>
         <main>
           <Outlet context={[products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart ]}/>
         </main>
