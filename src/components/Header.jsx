@@ -11,7 +11,7 @@ export default function Header({cart, products}) {
         <>
         <header>
             <div className="logo">
-                <Link to='/'>ShopName</Link>
+                <Link to='/'>Click&Buy</Link>
             </div>
             <div className="block">
                 <nav>
@@ -23,20 +23,20 @@ export default function Header({cart, products}) {
                 </div>
                 <div className="cart">
                     <Link to='cart'>
-                        <i className="fa-solid fa-cart-shopping fa-xl" style={{color: '#030386'}}></i>
+                        <i className="fa-solid fa-cart-shopping fa-xl cartIcon" style={{color: '#030386'}}></i>
                         {cart.length}
                     </Link>
                 </div>
             </div>
         </header>
-            <div>{search}
+            <div className="searchResults"> 
                 {search!=='' && (
                     products.map(product=>{
-                    if (product.title.match(new RegExp(search, "i"))) {
+                    if (search.length >= 2 && product.title.match(new RegExp(search, "i"))) {
                         return (
                             <div>
                                 <Link to={`shop/product/${product.id}`} state={{ product }}  onClick={() => setSearch('')}>
-                                    {product.title}
+                                    {product.title} 
                                 </Link>
                             </div>
                         ) 

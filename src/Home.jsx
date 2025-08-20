@@ -16,17 +16,23 @@ export default function Home () {
     return (
         <>
             <div className="promo">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, aspernatur, tenetur debitis voluptatibus tempora deleniti iure id voluptate ut saepe cum eaque atque expedita sint vitae modi nihil sunt minus! Modi minima repudiandae inventore dolorem, voluptate illo accusantium enim quos.
-                <button onClick={resetFilter}>Go shopping</button>
+                <div>
+                 Welcome to our online store! Discover trendy clothes, stylish accessories, and quality products for everyday life. Shopping made simple, fast, enjoyable.
+                    <button onClick={resetFilter}>Go shopping</button>
+                </div>
+                <div><img src='promo.jpg' width='300px'/></div>
             </div>
             <div className="sliderContainer"> 
                 <Slider products={products.slice(0,6)}/>
             </div>
+            <div className="categoryBlock"><h2>Shop by Category</h2></div>
             <div className="categoryBlock">
                 {category.map(c=>{
-                    return <div>
-                        <button onClick={()=>{categoryFilter(c)}} className="categoryButton">{c}</button>
+                    return (
+                        <div key={c.id}>
+                            <button onClick={()=>{categoryFilter(c)}} className="categoryButton">{c}</button>
                         </div>
+                    )
                 })}
             </div>
         </>

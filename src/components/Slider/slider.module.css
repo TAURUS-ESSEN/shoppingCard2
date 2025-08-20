@@ -23,6 +23,16 @@
     overflow: hidden;   
 }
 
+.legend {
+    display: flex;
+    justify-content: center;
+}
+
+.legend h2 {
+    margin: 0.4em;
+    color: #030386;
+}
+
 .cardsSlider {
     display: flex;
     gap: 0.5em;
@@ -34,18 +44,15 @@
 
 .card {
     flex: 0 0 calc((100% - 2 * 0.5em) / 3);  
-    box-sizing: border-box;
-    /* max-height: 300px; */
-    padding: 0.5em 1em;
-    /* border: 1px solid lightgray; */
-    border-radius: 5px;
-    list-style: none;
-    background-color: blanchedalmond;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    border: 1px solid  #030386;
+    border-radius: 5px;
+    list-style: none;
 }
 
 .cardImg {
@@ -63,6 +70,25 @@
 }
 
 .cardTitle {
-    font-size: 0.8rem;
+    margin-top: 1em;
+    font-size: 1.2rem;
     text-align: center;
+    color: #030386;
+}
+
+.cardPrice {
+    color: orange;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.buttons {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    transition: 0.4s ease-out;
+}
+
+.buttons:hover {
+    transform: scale(1.2);
 }

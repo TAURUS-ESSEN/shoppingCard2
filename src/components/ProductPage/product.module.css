@@ -1,22 +1,38 @@
-.liste {
+.container {
     display: flex;
     gap: 1em;
-    flex-wrap: wrap;
+    padding: 1em;
 }
 
-.card {
+.info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 23%;
-    border: 1px solid black;
-    border-radius: 5px;
+    gap: 1em;
+    background-color: antiquewhite;
+    padding: 1em;
+
 }
 
-.link {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.title {
+    font-size: 2em;
+    color: #030386;
+}
+
+.title h2 {
+    margin: 0;
+}
+
+.price {
+    color: rgb(255, 102, 0);
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+
+.cardButton {
+    
 }

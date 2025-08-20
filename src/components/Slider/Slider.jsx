@@ -23,11 +23,13 @@ export default function Slider({products}) {
                     onClick={() => {setIndex(prev => Math.max(prev - 1, 0));}} // не дает индексу уйти в минус
                     onMouseEnter={() => setPaused(true)} 
                     onMouseLeave={() => setPaused(false)}
+                    className={styles.buttons}
                 >
-                    {`<<<`}
+                    {<i class="fa-solid fa-circle-arrow-left fa-2xl" style={{color: '#010152'}}></i>}
                 </button>
             </div>
         <div className={styles.container}>
+            <div className={styles.legend}><h2>Hot New Arrivals</h2></div>
             <ul className={styles.cardsSlider} 
             style={{ transform: `translateX(-${index * (100 / 3)}%)` }}
                 onMouseEnter={() => setPaused(true)} 
@@ -38,9 +40,10 @@ export default function Slider({products}) {
                         <li className={styles.card} key={product.id}>
                             <Link to={`/shop/product/${product.id}`} state={{ product }}>
                                 <div className={styles.cardImg}><img src={product.image} alt={product.title}/></div>
-                                <div className={styles.cardTitle}>{product.title}</div>
-                                <div className={styles.cardPrice}>{product.price}</div>
+                                <div className={styles.cardTitle}>{product.title}</div> 
                             </Link>
+                                <div className={styles.cardPrice}>{product.price.toFixed(2)} $</div>
+                           
                         </li>
                     )
                 })}
@@ -51,8 +54,9 @@ export default function Slider({products}) {
                     onClick={() => {setIndex(prev => Math.min(prev + 1, products.length - 3));}} 
                     onMouseEnter={() => setPaused(true)} 
                     onMouseLeave={() => setPaused(false)}
+                    className={styles.buttons}
                 >
-                    {`>>>`}
+                    {<i class="fa-solid fa-circle-arrow-right fa-2xl" style={{color: '#010152'}}></i>}
                 </button>
             </div>
         </div>
