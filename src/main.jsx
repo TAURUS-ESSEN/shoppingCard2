@@ -6,11 +6,13 @@ import App from './App.jsx'
 import Shop from './Shop.jsx'
 import Home from './Home.jsx';
 import Cart from './components/Cart/Cart';
+import ErrorPage from './components/Error'
 import ProductPage from './components/ProductPage/ProductPage';
 
 const router = createBrowserRouter([
   { path: '/', 
-    element: <App />, 
+    element: <App />,
+    errorElement: <ErrorPage />, 
     children: [
       {index: true, element : <Home />},
       {path: 'shop', element: <Shop />}, 

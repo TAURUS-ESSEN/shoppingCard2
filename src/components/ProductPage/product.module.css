@@ -1,13 +1,16 @@
 .container {
     display: flex;
     gap: 1em;
-    padding: 1em;
+    padding: 0 1em;
 }
+
 .image {
     width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid rgba(5, 5, 192, 0.256);
+    border-radius: 10px;
 }
 
 .image img{
@@ -15,8 +18,8 @@
     width: 400px;
     max-height: 400px;
     object-fit: contain; 
-    /* padding: 1em; */
 }
+
 .info {
     display: flex;
     flex-direction: column;

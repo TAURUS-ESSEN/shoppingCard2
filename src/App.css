@@ -179,3 +179,12 @@ main {
   display: flex;
   gap: 1em;
 }
+
+.errorPage {
+  width: 500px;
+  margin: 30vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
