@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, NavLink } from "react-router-dom";
 import { useState } from "react";
+
 export default function Header({cart, products}) {
     const [search, setSearch] = useState('');
-
+    const location = useLocation();
+    console.log(location.pathname);
     function searchProduct(e) {
         setSearch(e.target.value)
     }
@@ -15,8 +17,8 @@ export default function Header({cart, products}) {
             </div>
             <div className="block">
                 <nav>
-                    <Link to='home'>Home</Link>
-                    <Link to='shop'>Shop</Link>
+                    <Link to='home' className={location.pathname==='/' || location.pathname==='/home' ? 'active' : ''}>Home</Link>
+                    <NavLink to='shop' className={({isActive}) => (isActive? `active` : '')}>Shop</NavLink>
                 </nav>
                 <div>
                     <input type="text" placeholder="Search a product" onChange={(e)=>searchProduct(e)} value={search} className="search"/>

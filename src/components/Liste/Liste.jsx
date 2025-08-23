@@ -43,28 +43,27 @@ export default function Liste() {
     
     return (
         <>
-                <div>
-                    <label htmlFor="select" className={styles.selector}>Products per Page</label>
-                    <select name='select' id='select' className={styles.selector} onChange={(e)=>changeItemsPerPage(e)}  value={itemsPerPage} >
-                        <option value='6'>6</option>
-                        <option value='10'>10</option>
-                        <option value={filteredProducts.length}>All</option>
-                    </select>
-                </div>
-        {/* {console.log(filteredProducts)} */}
+            <div>
+                <label htmlFor="select" className={styles.selector}>Products per Page</label>
+                <select name='select' id='select' className={styles.selector} onChange={(e)=>changeItemsPerPage(e)}  value={itemsPerPage} >
+                    <option value='6'>6</option>
+                    <option value='12'>12</option>
+                    <option value={filteredProducts.length}>All</option>
+                </select>
+            </div>
             <div className={styles.liste}>
                 {filteredProducts.slice(start,end).map(product=>{ 
                     if (selectedCategory.includes(product.category)) {
                     return (
                         <div className={styles.card}>
                             <Link to={`product/${product.id}`} className={styles.link} state={{ product }}>
-                                <div><img src={product.image} width='50px'/></div>
-                                <div>{product.title}</div>
+                                <div className={styles.image}><img src={product.image} alt={product.title}/></div>
+                                <div className={styles.title}>{product.title}</div>
                             </Link>
-                                <div>{product.price}</div>
+                                <div className={styles.price}>{product.price}</div>
                                 {cart.includes(product.id) ? (
-                                    <button onClick={()=>removeFromCart(product.id)}>Remove from shopping cart</button>
-                                ) : (<button onClick={()=>addToCart(product.id)}>Add to Cart</button>)}
+                                    <button onClick={()=>removeFromCart(product.id)} className={styles.cartButton}>Remove from Cart</button>
+                                ) : (<button onClick={()=>addToCart(product.id)} className={styles.cartButton}>Add to Cart</button>)}
                         </div>
                     )
                 }

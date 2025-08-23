@@ -64,6 +64,8 @@ nav {
   transition: 0.3s ease;
 }
 
+
+
 .cartIcon:hover{
   color:#cf4d02;
 }
@@ -73,7 +75,10 @@ nav {
   border-bottom: 1px solid #cf4d02;
   /* text-decoration: underline */
 }
-
+.active {
+  color:#cf4d02;
+  font-weight: 700;
+}
 .search {
   width: 15vw;
   padding: 0.4em;

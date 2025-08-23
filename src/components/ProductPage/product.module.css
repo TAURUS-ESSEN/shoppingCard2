@@ -3,14 +3,25 @@
     gap: 1em;
     padding: 1em;
 }
+.image {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.image img{
+    display: block;
+    width: 400px;
+    max-height: 400px;
+    object-fit: contain; 
+    /* padding: 1em; */
+}
 .info {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    background-color: antiquewhite;
     padding: 1em;
-
 }
 
 .title {
@@ -33,6 +44,16 @@
     line-height: 1.4;
 }
 
-.cardButton {
-    
+.cartButton {
+    padding: 0.5em;
+    font-size:1.3em;
+    background-color: #030386;
+    border: 0;
+    color: white;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.cartButton:hover {
+    background-color: rgb(255, 115, 0);
 }

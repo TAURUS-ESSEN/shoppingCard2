@@ -29,14 +29,17 @@ export default function ProductPage() {
         <>
         <div className={styles.container}>
             <div className={styles.image}>
-                <img src={product.image} />
+                <img src={product.image} alt={product.title} />
             </div>
             <div className={styles.info}>
                 <div className={styles.title}><h2>{product.title}</h2></div>
                 <div className={styles.price}>{product.price.toFixed(2)} $</div>
+                <div className={styles.category}>Сategory:<strong> {product.category}</strong></div>
                 <div className={styles.description}>{product.description}</div>
                 <div>
-                    {cart.includes(product.id) ? (<button onClick={()=>removeFromCart(product.id)}>removeFromCart</button>) : (<button onClick={()=>addToCart(product.id)}>add to cart</button>)}
+                    {cart.includes(product.id) ? 
+                    (<button onClick={()=>removeFromCart(product.id)} className={styles.cartButton}>Remove from Cart</button>) : 
+                    (<button onClick={()=>addToCart(product.id)} className={styles.cartButton}>Add to Сart</button>)}
                 </div>
 
             </div>
