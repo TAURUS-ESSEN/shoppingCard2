@@ -56,14 +56,18 @@ export default function Liste() {
                     if (selectedCategory.includes(product.category)) {
                     return (
                         <div className={styles.card}>
+                            <div className={styles.info}>
                             <Link to={`product/${product.id}`} className={styles.link} state={{ product }}>
                                 <div className={styles.image}><img src={product.image} alt={product.title}/></div>
                                 <div className={styles.title}>{product.title}</div>
                             </Link>
-                                <div className={styles.price}>{product.price}</div>
-                                {cart.includes(product.id) ? (
-                                    <button onClick={()=>removeFromCart(product.id)} className={styles.cartButton}>Remove from Cart</button>
-                                ) : (<button onClick={()=>addToCart(product.id)} className={styles.cartButton}>Add to Cart</button>)}
+                            <div className={styles.price}>${product.price.toFixed(2)}</div>
+                            </div>
+                            {cart.includes(product.id) ? (
+                                <button onClick={()=>removeFromCart(product.id)} className={styles.cartButton}>Remove from Cart</button>
+                                ) : (
+                                <button onClick={()=>addToCart(product.id)} className={styles.cartButton}>Add to Cart</button>
+                            )}
                         </div>
                     )
                 }
@@ -71,7 +75,9 @@ export default function Liste() {
             </div>
            {itemsPerPage !== filteredProducts.length && (
                    <div className={styles.pageButtons}>
+                    {currentPage !== 1 && (
                        <button onClick={()=> {changePage(currentPage-1)}} disabled={currentPage === 1}>Prev</button>
+                       )}
                    { tempArray.map(page => {
                        return (
                            <button key={page} 
@@ -83,7 +89,9 @@ export default function Liste() {
                            </button>
                        )
                    })}
-                   <button onClick={()=> {changePage(currentPage+1)}} disabled={currentPage === tempArray.length}>Next</button>    
+                   {currentPage !== tempArray.length && (
+                   <button onClick={()=> {changePage(currentPage+1)}}>Next</button>  
+                   )}  
                    </div>
                    )}
         </>
