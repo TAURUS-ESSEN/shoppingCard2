@@ -1,12 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import './index.css'
-import App from './App.jsx'
-import Shop from './Shop.jsx'
+import App from './App.jsx';
+import Shop from './Shop.jsx';
 import Home from './Home.jsx';
 import Cart from './components/Cart/Cart';
-import ErrorPage from './components/Error'
+import ErrorPage from './components/Error';
 import ProductPage from './components/ProductPage/ProductPage';
 
 const router = createBrowserRouter([
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
     children: [
       {index: true, element : <Home />},
       {path: 'shop', element: <Shop />}, 
-      {path: 'shop/product/:id', element: <ProductPage />}, 
-      {path: "home", element: <Navigate to="/" /> }, //редирект
+      {path: 'shop/product/:productId', element: <ProductPage />}, 
+      {path: "home", element: <Navigate to="/" replace/> },  
       {path: 'cart', element: <Cart />}
     ]},
 ])

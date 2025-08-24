@@ -2,9 +2,10 @@ import { useOutletContext, Link, useNavigate } from "react-router-dom";
 import Slider from './components/Slider/Slider'
 export default function Home () {
     const navigate = useNavigate();
-    const [products, ,category, setCategory, selectedCategory, setSelectedCategory] = useOutletContext();
+    const {products, category, selectedCategory, setSelectedCategory} = useOutletContext();
+    
     function categoryFilter(value) {
-        selectedCategory(prev=>prev.includes(value) ? prev.filter(c=>c===value) : [value] )
+        setSelectedCategory(prev=>prev.includes(value) ? prev.filter(c=>c===value) : [value] )
         navigate(`/shop`);
     }
 
@@ -17,10 +18,14 @@ export default function Home () {
         <>
             <div className="promo">
                 <div>
-                 Welcome to our online store! Discover trendy clothes, stylish accessories, and quality products for everyday life. Shopping made simple, fast, enjoyable.
-                    <button onClick={resetFilter}>Go shopping</button>
+                    Welcome to our online store! Discover trendy clothes, stylish accessories, and quality products for everyday life. Shopping made simple, fast, enjoyable.
+                    <p>
+                        <button onClick={resetFilter}>Go shopping 
+                            <i className="fa-solid fa-cart-arrow-down" style={{color: '#B197FC'}}></i>
+                        </button>
+                    </p>
                 </div>
-                <div><img src='promo.jpg' width='300px'/></div>
+                <div><img src='promo.jpg' width='300px' alt='promo image'/></div>
             </div>
             <div className="sliderContainer"> 
                 <Slider products={products.slice(0,6)}/>

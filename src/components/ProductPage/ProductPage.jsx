@@ -5,7 +5,7 @@ import styles from "./product.module.css"
 export default function ProductPage() {
     const { id } = useParams();
     // console.log('id=',id)
-    const [products, , , , , cart, setCart] =  useOutletContext();
+    const {products,cart, setCart} =  useOutletContext();
     const location = useLocation();
     let product = location.state?.product;
 

@@ -3,7 +3,7 @@ import styles from './cart.module.css';
 import { useOutletContext, Link } from "react-router-dom"
 
 export default function Cart() {
-  const [products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart ] = useOutletContext();
+  const {products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart}  = useOutletContext();
   const [cartQ, setCartQ] = useState([])
   // let shippingCost = 25;
   let sumBeforeShipping = 0;
@@ -30,8 +30,8 @@ export default function Cart() {
   }
 
   for (const cartItem of cartQ) {
-    const productIdentifier = cartItem.id;        // использую как есть из твоего состояния
-    const productQuantity  = cartItem.qty;        // использую как есть из твоего состояния
+    const productIdentifier = cartItem.id;     
+    const productQuantity  = cartItem.qty;
 
     const product = products.find(productItem => productItem.id === productIdentifier);
     if (!product) continue;

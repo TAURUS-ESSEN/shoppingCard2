@@ -4,7 +4,6 @@ import { useState } from "react";
 export default function Header({cart, products}) {
     const [search, setSearch] = useState('');
     const location = useLocation();
-    console.log(location.pathname);
     function searchProduct(e) {
         setSearch(e.target.value)
     }

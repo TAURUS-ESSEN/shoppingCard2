@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useOutletContext } from "react-router-dom";
 
 export default function Liste() {
-    const [products, , category, selectedCategory, setSelectedCategory, cart, setCart] =  useOutletContext();
+    const {products, category, selectedCategory, setSelectedCategory, cart, setCart} =  useOutletContext();
     const [filteredProducts, setFilteredProducts] = useState([]); 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(6);

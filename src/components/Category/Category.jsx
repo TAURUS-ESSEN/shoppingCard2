@@ -2,7 +2,7 @@ import styles from './category.module.css'
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 export default function Category() {
-    const [products, , category, selectedCategory, setSelectedCategory] =  useOutletContext();
+    const {products,  category, selectedCategory, setSelectedCategory} =  useOutletContext();
     function changeSelectedCategory(value) {
         setSelectedCategory(prev=>prev.includes(value) ? prev.filter(c=>c!==value) : [...prev, value])
     }

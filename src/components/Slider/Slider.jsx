@@ -25,7 +25,7 @@ export default function Slider({products}) {
                     onMouseLeave={() => setPaused(false)}
                     className={styles.buttons}
                 >
-                    {<i class="fa-solid fa-circle-arrow-left fa-2xl" style={{color: '#010152'}}></i>}
+                    {<i className="fa-solid fa-circle-arrow-left fa-2xl" style={{color: '#010152'}}></i>}
                 </button>
             </div>
         <div className={styles.container}>
@@ -56,7 +56,7 @@ export default function Slider({products}) {
                     onMouseLeave={() => setPaused(false)}
                     className={styles.buttons}
                 >
-                    {<i class="fa-solid fa-circle-arrow-right fa-2xl" style={{color: '#010152'}}></i>}
+                    {<i className="fa-solid fa-circle-arrow-right fa-2xl" style={{color: '#010152'}}></i>}
                 </button>
             </div>
         </div>

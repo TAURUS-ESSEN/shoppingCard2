@@ -17,7 +17,7 @@ function App() {
       .then(response => {
         setProducts(response);
       })}
-  }, [])
+  }, [products.length])
 
   useEffect(()=>{
     const uniqArray = [... new Set (products.map(product=>product.category))]
@@ -29,7 +29,7 @@ function App() {
     <>
         <Header cart={cart} setCart={setCart} products={products}/>
         <main>
-          <Outlet context={[products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart ]}/>
+          <Outlet context={{products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart} }/>
         </main>
         <Footer />
     </>
