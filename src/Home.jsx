@@ -6,7 +6,7 @@ export default function Home () {
     const {products, category, setSelectedCategory} = useOutletContext();
     
     function categoryFilter(value) {
-        setSelectedCategory(prev=>prev.includes(value) ? prev.filter(c=>c===value) : [value] )
+        setSelectedCategory([value])
         navigate(`/shop`);
     }
 

@@ -10,7 +10,7 @@ export default function Error() {
             setRedirect(true);
             return
         }
-        const timer = setInterval(()=>setSeconds(prev=>prev-1), 1000)
+        const timer = setInterval(() => setSeconds(s => s - 1), 1000)
         return () => clearInterval(timer)
     }, [seconds])
     
