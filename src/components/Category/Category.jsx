@@ -12,15 +12,16 @@ export default function Category() {
             <div className={styles.container}>
                 {category.map(value=>{
                 return (
-                    <div key={value} className={styles.category}>
+                    <label key={value} className={styles.category}>
                         <input 
+                            htmlFor={value}
                             type="checkbox" 
                             onChange={() => {changeSelectedCategory(value)}} 
                             value={value} 
                             className={styles.checkbox}
                             checked={selectedCategory.includes(value)}/>
                         {value}
-                    </div>
+                    </label>
                 )
                 })}
             </div>

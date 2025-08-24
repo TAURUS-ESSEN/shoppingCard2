@@ -3,13 +3,13 @@ import { useOutletContext } from "react-router-dom";
 import styles from "./product.module.css"
 
 export default function ProductPage() {
-    const { id } = useParams();
+    const { productId } = useParams();
     const {products,cart, setCart} =  useOutletContext();
     const location = useLocation();
     let product = location.state?.product;
 
     if (!product) {
-        product = products.find(p => String(p.id) === String(id));
+        product = products.find(p => String(p.id) === String(productId));
     }
 
     function addToCart(id) {
@@ -33,7 +33,7 @@ export default function ProductPage() {
             <div className={styles.info}>
                 <div className={styles.title}><h2>{product.title}</h2></div>
                 <div className={styles.price}>${product.price.toFixed(2)}</div>
-                <div className={styles.category}>Сategory:<strong> {product.category}</strong></div>
+                <div className={styles.category}>Category:<strong> {product.category}</strong></div>
                 <div className={styles.description}>{product.description}</div>
                 <div>
                     {cart.includes(product.id) ? 

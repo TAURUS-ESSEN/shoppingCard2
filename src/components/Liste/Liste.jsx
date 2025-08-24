@@ -8,9 +8,10 @@ export default function Liste() {
     const [filteredProducts, setFilteredProducts] = useState([]); 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(6);
-    let start = (currentPage - 1) * itemsPerPage;
-    let end = start + itemsPerPage;
-    const pageCount = Math.max(1, Math.ceil(filteredProducts.length / itemsPerPage))
+    const safeItemsPerPage = Math.max(1, itemsPerPage);
+    const start = (currentPage - 1) * safeItemsPerPage;
+    const end = start + safeItemsPerPage;
+    const pageCount = Math.max(1, Math.ceil(filteredProducts.length / safeItemsPerPage));
     let tempArray = [];
 
     for (let i=1; i<=pageCount; i++) {
@@ -46,7 +47,7 @@ export default function Liste() {
                 <select name='select' id='select' className={styles.selector} onChange={(e)=>changeItemsPerPage(e)}  value={itemsPerPage} >
                     <option value='6'>6</option>
                     <option value='12'>12</option>
-                    <option value={filteredProducts.length}>All</option>
+                    <option value={Math.max(1, filteredProducts.length)}>All</option>
                 </select>
             </div>
 

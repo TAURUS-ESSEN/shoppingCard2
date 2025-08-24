@@ -5,7 +5,7 @@ export default function Home () {
     const navigate = useNavigate();
     const {products, category, setSelectedCategory} = useOutletContext();
     
-    function categoryFilter(value) {
+    function goToCategory(value) {
         setSelectedCategory([value])
         navigate(`/shop`);
     }
@@ -36,7 +36,7 @@ export default function Home () {
                 {category.map(c=>{
                     return (
                         <div key={c}>
-                            <button onClick={()=>{categoryFilter(c)}} className="categoryButton">{c}</button>
+                            <button onClick={()=>{goToCategory(c)}} className="categoryButton">{c}</button>
                         </div>
                     )
                 })}

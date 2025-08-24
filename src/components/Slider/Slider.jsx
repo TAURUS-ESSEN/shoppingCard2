@@ -33,7 +33,7 @@ export default function Slider({products}) {
             style={{ transform: `translateX(-${index * (100 / 3)}%)` }}
                 onMouseEnter={() => setPaused(true)} 
                 onMouseLeave={() => setPaused(false)}>
-                {products.slice(0,6).map(product=> {
+                {products.map(product=> {
                     return (
                         <li className={styles.card} key={product.id}>
                             <Link to={`/shop/product/${product.id}`} state={{ product }}>
