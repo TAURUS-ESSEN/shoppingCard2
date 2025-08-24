@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useEffect, useState } from "react"; 
+import { Navigate, Link } from "react-router-dom";
 
 export default function Error() {
     const [redirect, setRedirect] = useState(false);
-    const [timer, setTimer] = useState(5);
+    const [seconds, setSeconds] = useState(5);
 
     useEffect(()=> {
-        if (timer < 1) {
+        if (seconds < 1) {
             setRedirect(true);
             return
         }
-
-        const id = setInterval(()=>setTimer(prev=>prev-1), 1000)
-        return () => clearInterval(id)
-    }, [timer])
+        const timer = setInterval(()=>setSeconds(prev=>prev-1), 1000)
+        return () => clearInterval(timer)
+    }, [seconds])
     
     if (redirect) {
         return <Navigate to='/' replace />
@@ -22,7 +21,8 @@ export default function Error() {
     return (
         <>
             <div className="errorPage">
-                Page not found. You will be automatically redirected to the home page in {timer} seconds.
+                Page not found. You will be automatically redirected to the home page in {seconds} seconds. 
+                <Link to='/' className="goHome">Go home now</Link>
             </div>
         </>
     )
