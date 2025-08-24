@@ -3,16 +3,15 @@ import styles from './cart.module.css';
 import { useOutletContext, Link } from "react-router-dom"
 
 export default function Cart() {
-  const {products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart}  = useOutletContext();
+  const {products, cart, setCart}  = useOutletContext();
   const [cartQ, setCartQ] = useState([])
-  // let shippingCost = 25;
   let sumBeforeShipping = 0;
   let total = 0;
 
   useEffect(()=> {
     setCartQ(prev => {
       const prevQty = new Map(prev.map(o => [o.id, o.qty]));
-      const ids = [...new Set(cart)]; // на случай дублей
+      const ids = [...new Set(cart)]; 
       return ids.map(id => ({ id, qty: prevQty.get(id) ?? 1 }));
     });
   },[cart]) 

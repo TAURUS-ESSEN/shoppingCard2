@@ -1,9 +1,8 @@
 import styles from './slider.module.css';
 import {useState, useEffect} from 'react';
-import { useOutletContext, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Slider({products}) {
-    // const [products] = useOutletContext();
     const [index, setIndex] = useState(0);
     const [paused, setPaused] = useState(false);
 
@@ -20,7 +19,7 @@ export default function Slider({products}) {
             <div className={styles.component}>
                 <div className={styles.arrows}>
                 <button 
-                    onClick={() => {setIndex(prev => Math.max(prev - 1, 0));}} // не дает индексу уйти в минус
+                    onClick={() => {setIndex(prev => Math.max(prev - 1, 0));}} 
                     onMouseEnter={() => setPaused(true)} 
                     onMouseLeave={() => setPaused(false)}
                     className={styles.buttons}
@@ -34,7 +33,6 @@ export default function Slider({products}) {
             style={{ transform: `translateX(-${index * (100 / 3)}%)` }}
                 onMouseEnter={() => setPaused(true)} 
                 onMouseLeave={() => setPaused(false)}>
-                {/* {products.slice(products.length-6,products.length).map(product=> { */}
                 {products.slice(0,6).map(product=> {
                     return (
                         <li className={styles.card} key={product.id}>
@@ -43,7 +41,6 @@ export default function Slider({products}) {
                                 <div className={styles.cardTitle}>{product.title}</div> 
                             </Link>
                                 <div className={styles.cardPrice}>${product.price.toFixed(2)}</div>
-                           
                         </li>
                     )
                 })}

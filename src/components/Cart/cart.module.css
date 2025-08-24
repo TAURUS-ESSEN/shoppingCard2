@@ -46,7 +46,6 @@
     align-items: center;
     gap:0.3em;
     padding: 0.5em;
-    /* background-color: blanchedalmond; */
 }
 
 .buttons {
@@ -120,8 +119,6 @@
 
 .buttonQ:hover {
     background-color: orange;
-    /* border: 0; */
-    /* transform: scale(1); */
 }
 
 .qty {

@@ -4,7 +4,6 @@ import styles from "./product.module.css"
 
 export default function ProductPage() {
     const { id } = useParams();
-    // console.log('id=',id)
     const {products,cart, setCart} =  useOutletContext();
     const location = useLocation();
     let product = location.state?.product;
@@ -18,7 +17,7 @@ export default function ProductPage() {
     }
 
     function removeFromCart(id) {
-        setCart(prev=>prev.filter(v=>v!=id))
+        setCart(prev=>prev.filter(v=>v!==id))
     }
 
     if (!product) {
@@ -39,7 +38,7 @@ export default function ProductPage() {
                 <div>
                     {cart.includes(product.id) ? 
                     (<button onClick={()=>removeFromCart(product.id)} className={styles.cartButton}>Remove from Cart</button>) : 
-                    (<button onClick={()=>addToCart(product.id)} className={styles.cartButton}>Add to Сart</button>)}
+                    (<button onClick={()=>addToCart(product.id)} className={styles.cartButton}>Add to Cart</button>)}
                 </div>
 
             </div>

@@ -1,8 +1,9 @@
-import { useOutletContext, Link, useNavigate } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import Slider from './components/Slider/Slider'
+
 export default function Home () {
     const navigate = useNavigate();
-    const {products, category, selectedCategory, setSelectedCategory} = useOutletContext();
+    const {products, category, setSelectedCategory} = useOutletContext();
     
     function categoryFilter(value) {
         setSelectedCategory(prev=>prev.includes(value) ? prev.filter(c=>c===value) : [value] )
@@ -10,7 +11,7 @@ export default function Home () {
     }
 
     function resetFilter() {
-        selectedCategory(category)
+        setSelectedCategory(category)
         navigate(`/shop`);
     }
 
@@ -21,7 +22,7 @@ export default function Home () {
                     Welcome to our online store! Discover trendy clothes, stylish accessories, and quality products for everyday life. Shopping made simple, fast, enjoyable.
                     <p>
                         <button onClick={resetFilter}>Go shopping 
-                            <i className="fa-solid fa-cart-arrow-down" style={{color: '#B197FC'}}></i>
+                            <i className="fa-solid fa-cart-arrow-down" style={{color: '#fff'}}></i>
                         </button>
                     </p>
                 </div>
@@ -34,7 +35,7 @@ export default function Home () {
             <div className="categoryBlock">
                 {category.map(c=>{
                     return (
-                        <div key={c.id}>
+                        <div key={c}>
                             <button onClick={()=>{categoryFilter(c)}} className="categoryButton">{c}</button>
                         </div>
                     )
