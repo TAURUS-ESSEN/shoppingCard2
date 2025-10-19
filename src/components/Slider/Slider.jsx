@@ -40,7 +40,8 @@ export default function Slider({products}) {
                                 <div className={styles.cardImg}><img src={product.image} alt={product.title}/></div>
                                 <div className={styles.cardTitle}>{product.title}</div> 
                             </Link>
-                                <div className={styles.cardPrice}>${product.price.toFixed(2)}</div>
+                                {/* <div className={styles.cardPrice}>${product.price.toFixed(2)}</div> */}
+                                <div className={styles.cardPrice}>${product.price}</div>
                         </li>
                     )
                 })}

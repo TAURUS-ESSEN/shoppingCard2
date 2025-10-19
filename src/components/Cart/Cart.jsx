@@ -66,7 +66,8 @@ export default function Cart() {
                     </div>
                   </Link>
                   <div className={styles.buttons}>
-                    <div className={styles.productPrice}>${product.price.toFixed(2)}</div>
+                    {/* <div className={styles.productPrice}>${product.price.toFixed(2)}</div> */}
+                    <div className={styles.productPrice}>${product.price}</div>
                     <div className={styles.qtyBlock}>
                       <button onClick={() => dec(id)} className={styles.buttonQ}>-</button>
                       <span className={styles.qty}>{qty}</span>

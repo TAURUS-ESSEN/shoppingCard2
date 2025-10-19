@@ -32,7 +32,8 @@ export default function ProductPage() {
             </div>
             <div className={styles.info}>
                 <div className={styles.title}><h2>{product.title}</h2></div>
-                <div className={styles.price}>${product.price.toFixed(2)}</div>
+                {/* <div className={styles.price}>${product.price.toFixed(2)}</div> */}
+                <div className={styles.price}>${product.price}</div>
                 <div className={styles.category}>Category:<strong> {product.category}</strong></div>
                 <div className={styles.description}>{product.description}</div>
                 <div>
