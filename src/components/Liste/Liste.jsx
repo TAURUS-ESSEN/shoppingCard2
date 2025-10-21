@@ -57,7 +57,7 @@ export default function Liste() {
                         <div className={styles.card} key={product.id}>
                             <div className={styles.info}>
                             <Link to={`product/${product.id}`} className={styles.link} state={{ product }}>
-                                <div className={styles.image}><img src={product.image} alt={product.title}/></div>
+                                <div className={styles.image}><img src={`/library/${product.image}`} alt={product.title}/></div>
                                 <div className={styles.title}>{product.title}</div>
                             </Link>
                             {/* <div className={styles.price}>${product.price.toFixed(2)}</div> */}

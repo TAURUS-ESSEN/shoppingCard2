@@ -5,4 +5,56 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "AnekLatin";
+  src: url("/Fonts/AnekLatin-VariableFont.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0  1rem;
+    border: 1px solid rgb(204, 203, 203);
+}
+
  
+@theme {
+  --color-primary: #493421;
+  --color-secondary: #7A5230;
+  --color-promo: #F3E9DC;
+}
+
+@layer base {
+  body, input, button {
+    font-family: 'AnekLatin', monospace;
+  }
+
+  input {
+    @apply border-1 rounded-lg p-2
+  }
+
+  a {
+    color: var(--color-secondary);
+  }
+
+  h2 {
+    @apply text-4xl uppercase font-bold text-primary my-2
+  }
+}
+
+
+@layer components {
+  .btn {
+    @apply flex items-center justify-center gap-2 px-6 py-2 bg-primary rounded-2xl text-2xl text-white font-medium 
+    hover:cursor-pointer
+  }
+}
+
+@layer utilities {
+  .active {
+    color: red;
+  }
+}

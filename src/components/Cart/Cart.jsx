@@ -61,7 +61,7 @@ export default function Cart() {
                 <div className={styles.item} key={id}>
                   <Link to={`/shop/product/${product.id}`}>
                     <div className={styles.productInfo}>
-                      <div className={styles.productImage}><img src={product.image} alt={product.title} /></div>
+                      <div className={styles.productImage}><img src={`/library/${product.image}`} alt={product.title} /></div>
                       <div className={styles.productTitle}>{product.title}</div>
                     </div>
                   </Link>

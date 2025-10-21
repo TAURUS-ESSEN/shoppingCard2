@@ -1,5 +1,6 @@
 import { useOutletContext, useNavigate } from "react-router-dom";
 import Slider from './components/Slider/Slider'
+import Bestseller from './components/Bestseller/Bestseller'
 
 export default function Home () {
     const navigate = useNavigate();
@@ -16,22 +17,35 @@ export default function Home () {
     }
 
     return (
-        <>
-            <div className="promo">
-                <div>
-                    Welcome to our online store! Discover trendy clothes, stylish accessories, and quality products for everyday life. Shopping made simple, fast, enjoyable.
+        <section className="-mx-4 relative">
+            <div className="flex w-full justify-between bg-promo">
+                <div className="flex flex-col p-12 gap-4 justify-center"> 
+                    <h1 className="text-6xl text-primary font-semibold">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
                     <p>
-                        <button onClick={resetFilter}>Go shopping 
+                        <button className="btn" onClick={resetFilter}>Zum Shop 
                             <i className="fa-solid fa-cart-arrow-down" style={{color: '#fff'}}></i>
                         </button>
                     </p>
                 </div>
-                <div><img src='promo.jpg' width='300px' alt='promo image'/></div>
+                <div className="md:max-w-[600px]"> 
+                    <img src='promo.webp' width='600' alt='promo image'/>
+                </div>
+            </div>
+            <div className=""> 
+                <Bestseller products={products.slice(6,12)}/>
+            </div>
+            <div className="flex flex-col justify-center items-center gap-5 max-w-[700px] m-auto"> 
+                <h2 className="text-center">Erhalte 10 % Rabatt auf deine erste Bestellung</h2>
+                <p className="text-xl">Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.</p>
+                <div className="flex gap-2 justify-center gap-5">
+                    <input type="text" placeholder="E-Mail-Adresse eingeben" className="min-w-[500px]"/>
+                    <button className="btn">Abonnieren</button>
+                </div>
             </div>
             <div className="sliderContainer"> 
                 <Slider products={products.slice(0,6)}/>
             </div>
-            <div className="categoryBlock"><h2>Shop by Category</h2></div>
+            {/* <div className="categoryBlock"><h2>Shop by Category</h2></div>
             <div className="categoryBlock">
                 {category.map(c=>{
                     return (
@@ -40,7 +54,7 @@ export default function Home () {
                         </div>
                     )
                 })}
-            </div>
-        </>
+            </div> */}
+        </section>
     )
 }

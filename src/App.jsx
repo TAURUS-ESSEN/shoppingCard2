@@ -27,13 +27,13 @@ function App() {
   },[products])
   
   return (
-    <>
+    <div className='wrapper'>
         <Header cart={cart} setCart={setCart} products={products}/>
         <main>
           <Outlet context={{products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart} }/>
         </main>
         <Footer />
-    </>
+    </div>
   )
 }
 
