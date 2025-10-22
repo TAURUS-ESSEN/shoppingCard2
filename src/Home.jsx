@@ -17,7 +17,7 @@ export default function Home () {
     }
 
     return (
-        <section className="-mx-4 relative">
+        <section className="mt-4 -mx-4 relative">
             <div className="flex w-full justify-between bg-promo">
                 <div className="flex flex-col p-12 gap-4 justify-center"> 
                     <h1 className="text-6xl text-primary font-semibold">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
@@ -46,12 +46,15 @@ export default function Home () {
                 <Slider products={products.slice(0,20)}/>
             </div>
             <section className="mt-10 px-4">
-                <div className="text-center"><h2>Nach Kategorie einkaufen</h2></div>
-                <div className="flex flex-wrap gap-5">
+                <div className="text-center mb-2"><h2>Nach Kategorie einkaufen</h2></div>
+                <div className="flex flex-wrap gap-5 justify-center">
                     {category.map(c=>{
                         return (
                             <div key={c} >
-                                <button onClick={()=>{goToCategory(c)}} className="flex items-center bg-secondary text-white p-4 rounded-2xl shadowHard hover:cursor-pointer hover:bg-primary transition duration-300">{c}</button>
+                                <button
+                                    onClick={() => goToCategory(c)}
+                                    className="flex items-center border-2 border-secondary text-secondary px-6 py-3 rounded-2xl font-semibold shadow-sm hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1"
+                                >{c}</button>
                             </div>
                         )
                     })}

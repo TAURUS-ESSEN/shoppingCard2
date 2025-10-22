@@ -15,7 +15,7 @@ export default function Header({cart, products}) {
                 <Link to='/' className="flex"><img src="logo.webp" width="100" height="100"/></Link>
             </div>
             <div className=" flex items-center w-full justify-between">
-                <nav className="flex w-full justify-evenly gap-8 text-2xl font-bold text-primary">
+                <nav className="flex w-full justify-evenly items-center gap-8 text-2xl font-semmibold text-primary">
                     <Link to='home' className={location.pathname==='/' || location.pathname==='/home' ? 'active' : ''}>Home</Link>
                     <NavLink to='shop' className={({isActive}) => (isActive? `active` : '')}>Shop</NavLink>
                     <NavLink to='about' className={({isActive}) => (isActive? `active` : '')}>Über uns</NavLink>
@@ -24,10 +24,10 @@ export default function Header({cart, products}) {
                 <div>
                     <input 
                         type="text" 
-                        placeholder="Search a product" 
+                        placeholder="Produkt suchen" 
                         onChange={(e)=>searchProduct(e)} 
                         value={search} 
-                        className="search1 border-2 border-primary rounded-lg p-2 min-w-[350px]"
+                        className="search1 border-2 border-secondary rounded-lg p-2 min-w-[350px]"
                     />
                 </div>
                 <div className="flex pl-6">

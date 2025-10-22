@@ -51,7 +51,7 @@ export default function Liste() {
                 </select>
             </div>
  
-            <div className="flex flex-wrap gap-2 justify-evenly mt-2">
+            <div className="flex flex-wrap gap-2 mt-2 px-4">
                 {filteredProducts.slice(start,end).map(product=>{ 
                     return (
                         <div className="card flex flex-col gap-2 max-w-[210px] bg-promo2" key={product.id}>
