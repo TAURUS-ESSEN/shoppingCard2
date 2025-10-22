@@ -83,4 +83,8 @@
   .shadow {
     box-shadow: 0 0 5px rgb(160, 160, 160);
   }
+
+    .shadowHard {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.744);
+  }
 }

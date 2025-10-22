@@ -45,16 +45,18 @@ export default function Home () {
             <div className="sliderContainer"> 
                 <Slider products={products.slice(0,20)}/>
             </div>
-            {/* <div className="categoryBlock"><h2>Shop by Category</h2></div>
-            <div className="categoryBlock">
-                {category.map(c=>{
-                    return (
-                        <div key={c}>
-                            <button onClick={()=>{goToCategory(c)}} className="categoryButton">{c}</button>
-                        </div>
-                    )
-                })}
-            </div> */}
+            <section className="mt-10 px-4">
+                <div className="text-center"><h2>Nach Kategorie einkaufen</h2></div>
+                <div className="flex flex-wrap gap-5">
+                    {category.map(c=>{
+                        return (
+                            <div key={c} >
+                                <button onClick={()=>{goToCategory(c)}} className="flex items-center bg-secondary text-white p-4 rounded-2xl shadowHard hover:cursor-pointer hover:bg-primary transition duration-300">{c}</button>
+                            </div>
+                        )
+                    })}
+                </div>
+            </section>
         </section>
     )
 }
