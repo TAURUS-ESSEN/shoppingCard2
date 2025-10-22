@@ -21,16 +21,16 @@ export default function Home () {
     return (
         <section className="mt-4 -mx-4 relative">
             <div className="flex w-full justify-between bg-promo">
-                <div className="flex flex-col p-12 gap-4 justify-center"> 
-                    <h1 className="text-6xl text-primary font-semibold animate-fade-up">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
+                <div className="flex flex-col px-4 md:p-12 gap-2 justify-center"> 
+                    <h1 className="text-2xl md:text-6xl text-primary font-semibold animate-fade-up">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
                     <p className="animate-fade-up-200">
                         <button className="btn animate-fade-up-400" onClick={resetFilter}>Zum Shop 
                             <FontAwesomeIcon icon={faCartArrowDown} className="text-white"/>
                         </button>
                     </p>
                 </div>
-                <div className="md:max-w-[600px]"> 
-                    <img src='promo.webp' width='600' alt='promo image'/>
+                <div className="max-w-[240px] md:max-w-[600px] overflow-hidden "> 
+                    <img src='promo.webp' width='600' alt='promo image' className="animate-zoom-in-slow will-transform block"/>
                 </div>
             </div>
             <div className=""> 

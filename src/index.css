@@ -85,7 +85,7 @@
 
 @layer components {
   .btn {
-    @apply flex items-center justify-center flex-wrap gap-2 px-6 py-2 bg-primary rounded-xl text-2xl text-white font-medium 
+    @apply flex items-center justify-center flex-wrap gap-2 px-2 md:px-6 py-2 bg-primary rounded-xl text-base md:text-2xl text-white font-medium 
     hover:cursor-pointer hover:bg-secondary transition duration-300
   }
 
@@ -144,4 +144,51 @@
   }
 
    
+}
+
+  /* Hamburger  */
+.close { display:none; font-size: 1.5rem; }
+input:checked ~ label .close { display:inline-block; }
+input:checked ~ label .open  { display:none; }
+
+#menu-toggler { display: none; }
+
+label[for="menu-toggler"] {
+  display: none;
+  cursor: pointer;
+  font-size: 2.2rem;
+  color: var(--text-on-dark-bg);
+  transform: scaleX(1.3);
+}
+label[for="menu-toggler"]:focus { outline: 1px solid var(--secondary-color); padding: 0.2rem; border-radius: 0.5rem; }
+
+details[open] .closed-icon, .is-hidden { display: none; }
+details[open] .open-icon { display: inline; }
+
+@media (width <= 1024px) {
+  label[for="menu-toggler"] { display: block; margin-right: 1rem; }
+
+  #menu-toggler:checked + label ~ nav  { display: flex; margin-left: 1rem; }
+  #menu-toggler:checked + label ~ nav .headerIconsBlock { display: flex; }
+
+  header nav {
+    display: none;
+    background-color: #fffffff0;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    margin-top: 0.2rem;
+    padding-bottom: 1rem;
+    border-radius: 0 0 0.3rem 0.3rem;
+    left: -1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    z-index: 2;
+    gap: 0.5rem;
+    box-shadow: 0 2px 2px rgb(187, 187, 187);
+  }
+
+  header nav div { display: none; }
 }
