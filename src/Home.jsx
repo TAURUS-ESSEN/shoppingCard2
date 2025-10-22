@@ -1,6 +1,8 @@
 import { useOutletContext, useNavigate } from "react-router-dom";
 import Slider from './components/Slider/Slider'
 import Bestseller from './components/Bestseller/Bestseller'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home () {
     const navigate = useNavigate();
@@ -20,10 +22,10 @@ export default function Home () {
         <section className="mt-4 -mx-4 relative">
             <div className="flex w-full justify-between bg-promo">
                 <div className="flex flex-col p-12 gap-4 justify-center"> 
-                    <h1 className="text-6xl text-primary font-semibold">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
-                    <p>
-                        <button className="btn" onClick={resetFilter}>Zum Shop 
-                            <i className="fa-solid fa-cart-arrow-down" style={{color: '#fff'}}></i>
+                    <h1 className="text-6xl text-primary font-semibold animate-fade-up">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
+                    <p className="animate-fade-up-200">
+                        <button className="btn animate-fade-up-400" onClick={resetFilter}>Zum Shop 
+                            <FontAwesomeIcon icon={faCartArrowDown} className="text-white"/>
                         </button>
                     </p>
                 </div>
@@ -35,10 +37,10 @@ export default function Home () {
                 <Bestseller products={products.slice(21,26)}/>
             </div>
             <div className="flex flex-col justify-center items-center gap-5 max-w-[700px] m-auto"> 
-                <h2 className="text-center">Erhalte 10 % Rabatt auf deine erste Bestellung</h2>
+                <h2 className="text-center uppercase">Erhalte 10 % Rabatt auf deine erste Bestellung</h2>
                 <p className="text-xl">Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.</p>
                 <div className="flex gap-2 justify-center gap-5">
-                    <input type="text" placeholder="E-Mail-Adresse eingeben" className="min-w-[500px]"/>
+                    <input type="text" placeholder="E-Mail-Adresse eingeben" className="min-w-[400px]"/>
                     <button className="btn">Abonnieren</button>
                 </div>
             </div>
@@ -46,7 +48,7 @@ export default function Home () {
                 <Slider products={products.slice(0,20)}/>
             </div>
             <section className="mt-10 px-4">
-                <div className="text-center mb-2"><h2>Nach Kategorie einkaufen</h2></div>
+                <div className="text-center mb-2"><h2 className="uppercase">Nach Kategorie einkaufen</h2></div>
                 <div className="flex flex-wrap gap-5 justify-center">
                     {category.map(c=>{
                         return (

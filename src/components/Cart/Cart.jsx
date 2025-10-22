@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './cart.module.css';
 import { useOutletContext, Link } from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark} from '@fortawesome/free-solid-svg-icons';
 
 export default function Cart() {
   const {products, cart, setCart}  = useOutletContext();
@@ -73,15 +75,14 @@ export default function Cart() {
                   <div className={styles.buttons}>
                     {/* <div className={styles.productPrice}>${product.price.toFixed(2)}</div> */}
                     <div className={styles.productPrice}>{product.price} €</div>
-                    <div className="border-1 rounded-sm">
-                      <button onClick={() => dec(id)} className="bg-primary px-3 py-1 rounded-sm text-white">-</button>
+                    <div className="border-1 border-primary rounded-sm">
+                      <button onClick={() => dec(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">-</button>
                       <span className="px-3">{qty}</span>
-                      <button onClick={() => inc(id)} className="bg-primary px-3 py-1 rounded-sm text-white">+</button>
+                      <button onClick={() => inc(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">+</button>
                     </div>
                     <div>
                       <button onClick={() => deleteItem(id)} className={styles.deleteItem}>
-                        {/* <i className="fa-solid fa-trash-can fa-lg" ></i> */}
-                        <i className="fa-solid fa-circle-xmark fa-2xl" style={{color: '#7A5230'}} aria-hidden="true"></i>
+                        <FontAwesomeIcon icon={faCircleXmark} className="text-secondary fa-2xl" aria-hidden="true"/>
                         <span className="sr-only">Удалить</span>
                       </button>
                     </div>

@@ -12,7 +12,7 @@ export default function Header({cart, products}) {
         <>
         <header className="flex">
             <div className="max-w-[100px] py-2">
-                <Link to='/' className="flex"><img src="logo.webp" width="100" height="100"/></Link>
+                <Link to='/' className="flex"><img src="/logo.webp" width="100" height="100"/></Link>
             </div>
             <div className=" flex items-center w-full justify-between">
                 <nav className="flex w-full justify-evenly items-center gap-8 text-2xl font-semmibold text-primary">
@@ -30,10 +30,10 @@ export default function Header({cart, products}) {
                         className="search1 border-2 border-secondary rounded-lg p-2 min-w-[350px]"
                     />
                 </div>
-                <div className="flex pl-6">
+                <div className="flex pl-6 ">
                     <Link to='cart' className="flex items-center">
                         <i className="fa-solid fa-bag-shopping fa-2xl relative" style={{color: '#7a5230'}}></i>
-                        <span className="relative -left-4.5 top-1 text-white">{cart.length}</span>
+                        <span className="relative -left-4.5 top-1 text-white w-10">{cart.length}</span>
                     </Link>
                 </div>
             </div>

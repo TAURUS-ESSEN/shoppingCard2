@@ -12,7 +12,6 @@ function App() {
 
   useEffect(()=>{
     if (products.length === 0) {
-      // fetch('https://fakestoreapi.com/products')
       fetch('https://68f4a5d6b16eb6f468351fd2.mockapi.io/api/ShoppingCartTaurusAusEssen/books')
       .then(response => response.json())
       .then(response => {

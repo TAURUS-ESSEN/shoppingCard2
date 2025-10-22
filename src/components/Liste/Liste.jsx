@@ -51,10 +51,10 @@ export default function Liste() {
                 </select>
             </div>
  
-            <div className="flex flex-wrap gap-2 mt-2 px-4">
+            <div className="flex flex-wrap gap-4 mt-2">
                 {filteredProducts.slice(start,end).map(product=>{ 
                     return (
-                        <div className="card flex flex-col gap-2 max-w-[210px] bg-promo2" key={product.id}>
+                        <div className="card flex flex-col gap-2 max-w-[210px] bg-promo fade-up-soft border-2  border-transparent hover:border-secondary transition-transform duration-400" key={product.id}>
                             <Link to={`product/${product.id}`} className={styles.link} state={{ product }}>
                                 <div className="">
                                     <img src={`/library/${product.image}`} alt={product.title} className='rounded-lg'/>
@@ -65,9 +65,13 @@ export default function Liste() {
                             <div className='flex justify-between items-center p-1 gap-4 w-full '>
                                 <div className="text-2xl">{product.price} €</div>
                                 {cart.includes(product.id) ? (
-                                    <button onClick={()=>removeFromCart(product.id)} className="hover:cursor-pointer"><img src='minus.webp' width="40"/></button>
+                                    <button onClick={()=>removeFromCart(product.id)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
+                                        <img src='minus.webp' width="40"/>
+                                    </button>
                                     ) : (
-                                    <button onClick={()=>addToCart(product.id)} className="hover:cursor-pointer"><img src='add.webp' width="40"/></button>
+                                    <button onClick={()=>addToCart(product.id)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
+                                        <img src='add.webp' width="40"/>
+                                    </button>
                                 )}
                             </div>
                         </div>

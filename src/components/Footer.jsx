@@ -50,7 +50,7 @@ export default function Footer() {
                         <span>Datenschutz</span>
                     </div>
                 </div>
-                <div className="border-t-1 text-center p-2">Copyright 2025 Bookworm. Alle Rechte vorbehalten.</div>
+                <div className="border-t-1 text-center pt-2">Copyright 2025 Bookworm. Alle Rechte vorbehalten.</div>
         </footer>
     )
 }

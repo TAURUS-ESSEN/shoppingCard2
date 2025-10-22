@@ -20,7 +20,26 @@
     border: 1px solid rgb(204, 203, 203);
 }
 
- 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomInSlow {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1); }
+}
+
+@keyframes fadeUpSoft {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSmooth {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @theme {
   --color-primary: #493421;
   --color-secondary: #7A5230;
@@ -55,15 +74,19 @@
   }
 
   h2 {
-    @apply text-4xl uppercase font-bold text-primary my-2
+    @apply text-4xl font-bold text-primary my-2
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 }
 
 
 @layer components {
   .btn {
-    @apply flex items-center justify-center gap-2 px-6 py-2 bg-primary rounded-2xl text-2xl text-white font-medium 
-    hover:cursor-pointer
+    @apply flex items-center justify-center flex-wrap gap-2 px-6 py-2 bg-primary rounded-xl text-2xl text-white font-medium 
+    hover:cursor-pointer hover:bg-secondary transition duration-300
   }
 
   .card {
@@ -88,6 +111,7 @@
 }
 
 @layer utilities {
+  
   .active {
     /* color: red; */
     @apply bg-promo2 text-secondary p-3 rounded-xl flex justify-center items-center 
@@ -100,4 +124,24 @@
     .shadowHard {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.744);
   }
+
+   .animate-fade-up         { animation: fadeUp .8s ease-out both; }
+  .animate-fade-up-200     { animation: fadeUp .8s ease-out .2s both; }
+  .animate-fade-up-400     { animation: fadeUp .8s ease-out .4s both; }
+
+  .animate-zoom-in-slow    { animation: zoomInSlow 2.5s ease-out both; }
+
+  .will-transform { will-change: transform; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up, .animate-fade-up-200, .animate-fade-up-400, .animate-zoom-in-slow {
+      animation: none !important;
+    }
+  }
+
+  .fade-up-soft {
+    animation: fadeUpSoft 0.6s ease-out both;
+  }
+
+   
 }

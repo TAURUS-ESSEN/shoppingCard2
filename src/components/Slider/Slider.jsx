@@ -1,6 +1,8 @@
-import styles from './slider.module.css';
 import {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleArrowRight, faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Slider({products}) {
     const [index, setIndex] = useState(0);
@@ -31,12 +33,12 @@ useEffect(() => {
                     onMouseLeave={() => setPaused(false)}
                     className="cursor-pointer bg-transparent border-0 transition ease-out duration-400 hover:scale-125"
                 >
-                    {<i className="fa-solid fa-circle-arrow-left fa-2xl" style={{color: '#7A5230'}}></i>}
+                    <FontAwesomeIcon icon={faCircleArrowLeft} className="fa-2xl text-secondary"/>
                 </button>
             </div>
         <div className="overflow-hidden">
             <div className="text-center">
-                <h2>Unsere Neuheiten</h2>
+                <h2 className='uppercase'>Unsere Neuheiten</h2>
                 </div>
             <ul className="flex gap-5 transition ease-out duration-400 w-[1100px]"
                 style={{ transform: `translateX(-${index * (100 / 4)}%)` }}
@@ -66,7 +68,7 @@ useEffect(() => {
                     onMouseLeave={() => setPaused(false)}
                     className="cursor-pointer bg-transparent border-0 transition ease-out duration-400 hover:scale-125"
                 >
-                    {<i className="fa-solid fa-circle-arrow-right fa-2xl" style={{color: '#7A5230'}}></i>}
+                    <FontAwesomeIcon icon={faCircleArrowRight} className="fa-2xl text-secondary"/>
                 </button>
             </div>
         </div>
