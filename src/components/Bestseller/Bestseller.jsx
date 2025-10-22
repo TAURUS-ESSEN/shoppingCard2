@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Bestseller({products}) {
     return (
         <section className="my-8 relative text-center">
-    <div className="hidden md:absolute -bottom-2 left-0 w-full h-[120px] bg-[#7A5230]"></div>
+    <div className="hidden md:block absolute -bottom-2 left-0 w-full h-[120px] bg-[#7A5230]"></div>
     <h2 className="uppercase ">Bestseller</h2>
 
     <ul className="flex flex-wrap justify-center gap-3 md:gap-5 relative z-10">
