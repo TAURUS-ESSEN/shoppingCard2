@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 export default function Bestseller({products}) {
     return (
         <section className="my-8 relative text-center">
-    <div className="absolute -bottom-2 left-0 w-full h-[120px] bg-[#7A5230]"></div>
-    <h2 className="uppercase">Bestseller</h2>
+    <div className="hidden md:absolute -bottom-2 left-0 w-full h-[120px] bg-[#7A5230]"></div>
+    <h2 className="uppercase ">Bestseller</h2>
 
-    <ul className="flex justify-center gap-5 relative z-10">
+    <ul className="flex flex-wrap justify-center gap-3 md:gap-5 relative z-10">
         {products.map((product) => (
         <li className="max-w-[150px] hover:scale-105 transition duration-300 " key={product.id}>
             <Link
@@ -25,7 +25,7 @@ export default function Bestseller({products}) {
 
                 <div className="flex flex-col justify-between flex-1 ">
                 {/* <div className="text-base text-white">{product.title}</div> */}
-                <div className="text-white">{product.price} €</div>
+                <div className="text-primary md:text-white">{product.price} €</div>
                 </div>
             </div>
             </Link>

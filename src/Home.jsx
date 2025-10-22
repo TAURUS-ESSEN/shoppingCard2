@@ -34,14 +34,14 @@ export default function Home () {
                 </div>
             </div>
             <div className=""> 
-                <Bestseller products={products.slice(21,26)}/>
+                <Bestseller products={products.slice(21,27)}/>
             </div>
-            <div className="flex flex-col justify-center items-center gap-5 max-w-[700px] m-auto"> 
-                <h2 className="text-center uppercase">Erhalte 10 % Rabatt auf deine erste Bestellung</h2>
-                <p className="text-xl">Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.</p>
-                <div className="flex gap-2 justify-center gap-5">
-                    <input type="text" placeholder="E-Mail-Adresse eingeben" className="min-w-[400px]"/>
-                    <button className="btn">Abonnieren</button>
+            <div className="bg-secondary md:bg-transparent flex flex-col justify-center items-center gap-2 md:gap-5 p-2 max-w-[330px]  md:max-w-[700px] m-auto rounded-2xl"> 
+                <h2 className="text-center md:uppercase text-white md:text-primary">Erhalte 10 % Rabatt auf deine erste Bestellung</h2>
+                <p className="text-center text-sm md:text-xl text-white md:text-primary">Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.</p>
+                <div className="flex items-center flex-col w-full md:flex-row justify-center gap-2">
+                    <input type="text" placeholder="E-Mail-Adresse eingeben" className="bg-white  md:min-w-[400px]"/>
+                    <button className="btn max-w-25 bg-tertiary text-primary  md:bg-primary md:text-white md:max-w-40">Abonnieren</button>
                 </div>
             </div>
             <div className="sliderContainer"> 
@@ -49,13 +49,13 @@ export default function Home () {
             </div>
             <section className="mt-10 px-4">
                 <div className="text-center mb-2"><h2 className="uppercase">Nach Kategorie einkaufen</h2></div>
-                <div className="flex flex-wrap gap-5 justify-center">
+                <div className="flex flex-wrap gap-2 md:gap-5 justify-center">
                     {category.map(c=>{
                         return (
                             <div key={c} >
                                 <button
                                     onClick={() => goToCategory(c)}
-                                    className="flex items-center border-2 border-secondary text-secondary px-6 py-3 rounded-2xl font-semibold shadow-sm hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1"
+                                    className="flex items-center border-2 border-secondary text-secondary px-3 md:px-6 py-3 rounded-2xl font-medium md:font-semibold shadow-sm hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1"
                                 >{c}</button>
                             </div>
                         )
