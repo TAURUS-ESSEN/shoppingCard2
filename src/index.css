@@ -94,7 +94,7 @@
   }
 
   .pageButtons {
-  @apply flex gap-[0.2em] mt-4;
+  @apply hidden md:flex gap-[0.2em] mt-4;
 }
 
 .pageButtons button {

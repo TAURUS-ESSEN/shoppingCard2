@@ -26,7 +26,7 @@ export default function ProductPage() {
 
     return (
         <section className="mt-4">
-        <div className="flex flex-col md:flex-row justify-center gap-4 px-2 bg-amber-300">
+        <div className="flex flex-col md:flex-row justify-center gap-4 px-2">
             <div className="card min-w-[270px] rounded-xl shadow fade-up-soft">
                 <img src={`/library/${product.image}`} alt={product.title} className="rounded-lg"/>
             </div>
