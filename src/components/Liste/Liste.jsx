@@ -7,7 +7,7 @@ export default function Liste() {
     const {products, selectedCategory, cart, setCart} =  useOutletContext();
     const [filteredProducts, setFilteredProducts] = useState([]); 
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(6);
+    const [itemsPerPage, setItemsPerPage] = useState(8);
     const safeItemsPerPage = Math.max(1, itemsPerPage);
     const start = (currentPage - 1) * safeItemsPerPage;
     const end = start + safeItemsPerPage;
@@ -41,33 +41,35 @@ export default function Liste() {
     }
     
     return (
-        <>
+        <section>
             <div>
                 <label htmlFor="select" className={styles.selector}>Products per Page</label>
-                <select name='select' id='select' className={styles.selector} onChange={(e)=>changeItemsPerPage(e)}  value={itemsPerPage} >
-                    <option value='6'>6</option>
-                    <option value='12'>12</option>
+                <select name='select' id='select' className="border-1 rounded p-1" onChange={(e)=>changeItemsPerPage(e)}  value={itemsPerPage} >
+                    <option value='8'>8</option>
+                    <option value='16'>16</option>
                     <option value={Math.max(1, filteredProducts.length)}>All</option>
                 </select>
             </div>
-
-            <div className={styles.liste}>
+ 
+            <div className="flex flex-wrap gap-2 justify-evenly mt-2">
                 {filteredProducts.slice(start,end).map(product=>{ 
                     return (
-                        <div className={styles.card} key={product.id}>
-                            <div className={styles.info}>
+                        <div className="card flex flex-col gap-2 max-w-[210px] bg-promo2" key={product.id}>
                             <Link to={`product/${product.id}`} className={styles.link} state={{ product }}>
-                                <div className={styles.image}><img src={`/library/${product.image}`} alt={product.title}/></div>
-                                <div className={styles.title}>{product.title}</div>
+                                <div className="">
+                                    <img src={`/library/${product.image}`} alt={product.title} className='rounded-lg'/>
+                                </div>
+                                {/* <div className={styles.title}>{product.title}</div> */}
                             </Link>
                             {/* <div className={styles.price}>${product.price.toFixed(2)}</div> */}
-                            <div className={styles.price}>${product.price}</div>
+                            <div className='flex justify-between items-center p-1 gap-4 w-full '>
+                                <div className="text-2xl">{product.price} €</div>
+                                {cart.includes(product.id) ? (
+                                    <button onClick={()=>removeFromCart(product.id)} className="hover:cursor-pointer"><img src='minus.webp' width="40"/></button>
+                                    ) : (
+                                    <button onClick={()=>addToCart(product.id)} className="hover:cursor-pointer"><img src='add.webp' width="40"/></button>
+                                )}
                             </div>
-                            {cart.includes(product.id) ? (
-                                <button onClick={()=>removeFromCart(product.id)} className={styles.cartButton}>Remove from Cart</button>
-                                ) : (
-                                <button onClick={()=>addToCart(product.id)} className={styles.cartButton}>Add to Cart</button>
-                            )}
                         </div>
                     )
                 }
@@ -75,7 +77,7 @@ export default function Liste() {
             </div>
 
             {itemsPerPage !== filteredProducts.length && (
-            <div className={styles.pageButtons}>
+            <div className="pageButtons">
                 {currentPage !== 1 && (
                     <button onClick={()=> {changePage(currentPage-1)}} disabled={currentPage === 1}>Prev</button>
                 )}
@@ -94,6 +96,6 @@ export default function Liste() {
                 )}  
             </div>
             )}
-        </>
+        </section>
     )
 }

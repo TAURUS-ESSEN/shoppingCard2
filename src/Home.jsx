@@ -32,7 +32,7 @@ export default function Home () {
                 </div>
             </div>
             <div className=""> 
-                <Bestseller products={products.slice(6,12)}/>
+                <Bestseller products={products.slice(21,26)}/>
             </div>
             <div className="flex flex-col justify-center items-center gap-5 max-w-[700px] m-auto"> 
                 <h2 className="text-center">Erhalte 10 % Rabatt auf deine erste Bestellung</h2>
@@ -43,7 +43,7 @@ export default function Home () {
                 </div>
             </div>
             <div className="sliderContainer"> 
-                <Slider products={products.slice(0,6)}/>
+                <Slider products={products.slice(0,20)}/>
             </div>
             {/* <div className="categoryBlock"><h2>Shop by Category</h2></div>
             <div className="categoryBlock">

@@ -9,18 +9,18 @@ export default function Category() {
     return (
         <>
             {category.length > 0  && (
-            <div className={styles.container}>
+            <div className="flex flex-col min-w-[250px] p-4 rounded-xl bg-primary text-white">
                 {category.map(value=>{
                 return (
-                    <label key={value} className={styles.category}>
+                    <label key={value} className="flex items-center">
                         <input 
                             htmlFor={value}
                             type="checkbox" 
                             onChange={() => {changeSelectedCategory(value)}} 
                             value={value} 
-                            className={styles.checkbox}
+                            className="w-5 h-5 m-2 cursor-pointer text-white accent-promo"
                             checked={selectedCategory.includes(value)}/>
-                        {value}
+                        <span>{value}</span>
                     </label>
                 )
                 })}

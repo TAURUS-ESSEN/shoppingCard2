@@ -40,7 +40,7 @@ export default function Cart() {
   }
 
   let shippingCost;
-  if (sumBeforeShipping >= 100) {
+  if (sumBeforeShipping >= 50) {
     shippingCost = 0;
   } else {
     shippingCost = 25;
@@ -49,34 +49,39 @@ export default function Cart() {
   total=sumBeforeShipping+shippingCost 
 
   return (
-    <>
-        <div className={styles.cartHeader}>Shopping Cart</div>
+    <section>
+        <h2 className='text-center'>Warenkorb</h2>
       {cart.length !== 0 ? (
         <div className={styles.container}>
-          <div className={styles.items}>
+          <div className='w-full'>
             {cartQ.map(({ id, qty }) => {
               const product = products.find(p => p.id === id);
               if (!product) return null;
               return (
-                <div className={styles.item} key={id}>
+                <div className="flex gap-6 items-center justify-between w-full border border-[#03038635] rounded-md mt-[0.05em] transition duration-500;" key={id}>
                   <Link to={`/shop/product/${product.id}`}>
-                    <div className={styles.productInfo}>
-                      <div className={styles.productImage}><img src={`/library/${product.image}`} alt={product.title} /></div>
-                      <div className={styles.productTitle}>{product.title}</div>
+                    <div className="flex items-center gap-2 p-2 ">
+                      <div className="card max-w-[130px]">
+                        <img src={`/library/${product.image}`} alt={product.title} />
+                      </div>
+                      <div >
+                        <div className="text-secondary max-w-[400px]">{product.title}</div>
+                        <div>von <span className="text-secondary">{product.autor}</span></div>
+                      </div>
                     </div>
                   </Link>
                   <div className={styles.buttons}>
                     {/* <div className={styles.productPrice}>${product.price.toFixed(2)}</div> */}
-                    <div className={styles.productPrice}>${product.price}</div>
-                    <div className={styles.qtyBlock}>
-                      <button onClick={() => dec(id)} className={styles.buttonQ}>-</button>
-                      <span className={styles.qty}>{qty}</span>
-                      <button onClick={() => inc(id)} className={styles.buttonQ}>+</button>
+                    <div className={styles.productPrice}>{product.price} €</div>
+                    <div className="border-1 rounded-sm">
+                      <button onClick={() => dec(id)} className="bg-primary px-3 py-1 rounded-sm text-white">-</button>
+                      <span className="px-3">{qty}</span>
+                      <button onClick={() => inc(id)} className="bg-primary px-3 py-1 rounded-sm text-white">+</button>
                     </div>
                     <div>
                       <button onClick={() => deleteItem(id)} className={styles.deleteItem}>
-                        <i className="fa-solid fa-trash-can fa-lg" aria-hidden="true"></i>
-              
+                        {/* <i className="fa-solid fa-trash-can fa-lg" ></i> */}
+                        <i className="fa-solid fa-circle-xmark fa-2xl" style={{color: '#7A5230'}} aria-hidden="true"></i>
                         <span className="sr-only">Удалить</span>
                       </button>
                     </div>
@@ -85,21 +90,24 @@ export default function Cart() {
               );
             })}
           </div>
-          <div className={styles.total}>
+          <div className="min-w-[300px] max-h-[300px] bg-primary text-white p-4 flex flex-col justify-center rounded-xl">
             <div className={styles.totalFields}>
-              <span>Subtotal:</span> <span> ${sumBeforeShipping.toFixed(2)}</span>
+              <span>Zwischensumme:</span> <span> {sumBeforeShipping.toFixed(2)} €</span>
             </div>
             <div className={styles.totalFields}>
-              <span>Shipping*:</span><span> ${shippingCost.toFixed(2)}</span>
+              <span>Versant*:</span><span> {shippingCost.toFixed(2)} €</span>
             </div>
             <div className={styles.totalSumme}>
-              <span>Total:</span><span>${total.toFixed(2)}</span>
+              <span>Summe:</span><span>{total.toFixed(2)} €</span>
             </div>
-            <div className={styles.totalText}>*For orders over $100, shipping is free.</div>
+            <div className='flex flex-col justify-center items-center'>
+              <div className="my-4 text-base">*Ab 50 € versandkostenfrei</div>
+              <div><button className="bg-[#F6EDE1] text-primary rounded-lg px-6 py-2 ">Zur Kasse gehen</button></div>
+            </div>
           </div>
       </div>
       ) : (<div className={styles.emptyCart}><h2>Cart is empty</h2></div>)
     }
-    </>
+    </section>
   )
 }

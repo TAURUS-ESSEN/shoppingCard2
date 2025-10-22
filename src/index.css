@@ -24,7 +24,9 @@
 @theme {
   --color-primary: #493421;
   --color-secondary: #7A5230;
+  --color-tertiary: #FFF4E6;
   --color-promo: #F3E9DC;
+  --color-promo2: #F6EDE1;
 }
 
 @layer base {
@@ -51,10 +53,34 @@
     @apply flex items-center justify-center gap-2 px-6 py-2 bg-primary rounded-2xl text-2xl text-white font-medium 
     hover:cursor-pointer
   }
+
+  .card {
+    @apply bg-amber-100 flex items-center rounded-xl justify-center p-2 
+  }
+
+  .pageButtons {
+  @apply flex gap-[0.2em] mt-4;
+}
+
+.pageButtons button {
+  @apply bg-primary text-white px-4 py-2 rounded-md border-0 transition duration-500;
+}
+
+.pageButtons button:hover {
+  @apply scale-110 border-1 bg-white text-primary;
+}
+
+.pageButtons button:disabled {
+  @apply bg-[#F3E9DC] text-primary border-1;
+}
 }
 
 @layer utilities {
   .active {
     color: red;
+  }
+
+  .shadow {
+    box-shadow: 0 0 5px rgb(160, 160, 160);
   }
 }

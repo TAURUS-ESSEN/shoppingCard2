@@ -6,8 +6,9 @@
 
 .component {
     margin: 1em auto;
+    padding: 0 1rem;
     display: flex;
-    max-width: 800px;
+    /* max-width: 800px; */
     /* max-height: 350px; */
 }
 
@@ -18,19 +19,7 @@
 }
 
 .container {
-    /* width: 688px; */
-    /* background-color: aqua; */
     overflow: hidden;   
-}
-
-.legend {
-    display: flex;
-    justify-content: center;
-}
-
-.legend h2 {
-    margin: 0.4em;
-    color: #030386;
 }
 
 .cardsSlider {
@@ -43,7 +32,7 @@
 }
 
 .card {
-    flex: 0 0 calc((100% - 2 * 0.5em) / 3);  
+    flex: 0 0 calc((100% - 2 * 0.5em) / 5);  
     display: flex;
     flex-direction: column;
     align-items: center;

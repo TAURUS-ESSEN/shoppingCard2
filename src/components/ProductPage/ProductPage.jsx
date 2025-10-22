@@ -25,27 +25,27 @@ export default function ProductPage() {
     }
 
     return (
-        <>
+        <section className="mt-4">
         <div className={styles.container}>
-            <div className={styles.image}>
-                <img src={`/library/${product.image}`} alt={product.title} />
+            <div className="card min-w-[270px] rounded-xl shadow">
+                <img src={`/library/${product.image}`} alt={product.title} className="rounded-lg"/>
             </div>
             <div className={styles.info}>
                 <div className={styles.title}><h2>{product.title}</h2></div>
                 {/* <div className={styles.price}>${product.price.toFixed(2)}</div> */}
-                <div className={styles.price}>${product.price}</div>
-                <div className={styles.category}>Category:<strong> {product.category}</strong></div>
-                <div className={styles.description}>{product.description}</div>
+                <div className="text-lg border-b-1 ">Category:<span className="font-semibold text-secondary"> {product.category}</span></div>
+                <div className="font-bold text-4xl text-secondary">${product.price}</div>
+                <div className="bg-tertiary p-2 rounded-lg text-lg ">{product.description}</div>
                 <div>
                     {cart.includes(product.id) ? 
-                    (<button onClick={()=>removeFromCart(product.id)} className={styles.cartButton}>Remove from Cart</button>) : 
-                    (<button onClick={()=>addToCart(product.id)} className={styles.cartButton}>Add to Cart</button>)}
+                    (<button onClick={()=>removeFromCart(product.id)} className="btn">Remove from Cart</button>) : 
+                    (<button onClick={()=>addToCart(product.id)} className="btn">In den Warenkorb</button>)}
                 </div>
 
             </div>
         </div>
             
 
-        </>
+        </section>
     )
 }
