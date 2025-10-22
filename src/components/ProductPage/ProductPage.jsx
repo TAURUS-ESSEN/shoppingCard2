@@ -26,16 +26,16 @@ export default function ProductPage() {
 
     return (
         <section className="mt-4">
-        <div className="flex justify-center gap-4 px-10">
+        <div className="flex flex-col md:flex-row justify-center gap-4 px-10">
             <div className="card min-w-[270px] rounded-xl shadow fade-up-soft">
                 <img src={`/library/${product.image}`} alt={product.title} className="rounded-lg"/>
             </div>
             <div className= "fade-up-soft flex flex-col gap-2">
                 <div className=""><h2>{product.title}</h2></div>
                 {/* <div className={styles.price}>${product.price.toFixed(2)}</div> */}
-                <div className="text-lg ">von:<span className="font-semibold text-secondary"> {product.autor}</span></div>
+                <div className="text-lg ">von:<span className="font-medium md:font-semibold text-secondary"> {product.autor}</span></div>
                 <div className="text-lg border-b-1 border-promo ">Category:<span className="font-semibold text-secondary"> {product.category}</span></div>
-                <div className="font-bold text-4xl text-secondary">${product.price}</div>
+                <div className="font-bold text-2xl md:text-4xl text-secondary">${product.price}</div>
                 <div className="bg-tertiary p-2 rounded-lg text-lg ">{product.description}</div>
                 <div>
                     {cart.includes(product.id) ? 
