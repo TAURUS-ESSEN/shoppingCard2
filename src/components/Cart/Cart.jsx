@@ -107,7 +107,7 @@ export default function Cart() {
             </div>
           </div>
       </div>
-      ) : (<div className={styles.emptyCart}><h2>Cart is empty</h2></div>)
+      ) : (<div className={styles.emptyCart}><h2>Warenkorb ist leer</h2></div>)
     }
     </section>
   )
