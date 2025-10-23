@@ -21,6 +21,13 @@ html { scroll-behavior: smooth; }
     margin: 0 auto;
     padding: 0 var(--wrap-pad);
     border: 1px solid rgb(204, 203, 203);
+    box-shadow: 0 1px 4px rgb(204, 203, 203);
+}
+
+.trick {
+  margin-inline: calc(-1 * var(--wrap-pad));
+  width: calc(100% + calc(2 * var(--wrap-pad)));
+  padding: 1rem;
 }
 
 @keyframes fadeUp {
@@ -50,11 +57,18 @@ html { scroll-behavior: smooth; }
   --color-tertiary: #FFF4E6;
   --color-promo: #F3E9DC;
   --color-promo2: #F6EDE1;
+  --shadow-soft: 0 1px 4px rgb(204, 203, 203);
 }
 
 @layer base {
   body, input, button {
     font-family: 'AnekLatin', monospace;
+  }
+
+  header {
+    margin-inline: calc(-1 * var(--wrap-pad));
+    width: calc(100% + calc(2 * var(--wrap-pad)));
+    padding: 0 1rem;
   }
 
   ::placeholder {
@@ -187,6 +201,7 @@ details[open] .open-icon { display: inline; }
 
     header {
       position: relative;
+
     }
 
     nav ul {
@@ -199,7 +214,7 @@ details[open] .open-icon { display: inline; }
         position: absolute;
         top: 100%;
         margin-top: 0.2rem;
-        padding: 0.5rem;
+        padding: 0.5rem 2rem;
         right: 0;
         z-index: 2;
         gap: 0;
