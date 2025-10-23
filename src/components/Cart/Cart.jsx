@@ -52,7 +52,7 @@ export default function Cart() {
 
   return (
     <section>
-        <h2 className='text-center'>Warenkorb</h2>
+        <h2 className='text-center' id="top">Warenkorb</h2>
       {cart.length !== 0 ? (
         <div className={styles.container}>
           <div className='w-full'>

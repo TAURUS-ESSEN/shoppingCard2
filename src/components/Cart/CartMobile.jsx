@@ -6,7 +6,7 @@ export default function CartMobile({cart}) {
         <>
             <button
             className="fixed bottom-5 right-5 bg-secondary text-white p-4 rounded-full shadowHard z-50"
-            onClick={() => navigate('/cart')}
+            onClick={() => navigate('/cart#top')}
             >
             <i className="fa-solid fa-bag-shopping fa-lg"></i>
             {cart.length > 0 && (
