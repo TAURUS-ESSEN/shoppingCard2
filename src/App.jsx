@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from './components/Header'
 import Footer from './components/Footer'
+import CartMobile from './components/Cart/CartMobile'
 import { Outlet } from 'react-router-dom'
 import './App.css'
 
@@ -9,6 +10,7 @@ function App() {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [cart, setCart] = useState([]);
+ 
 
   useEffect(()=>{
     if (products.length === 0) {
@@ -31,6 +33,9 @@ function App() {
         <main>
           <Outlet context={{products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart} }/>
         </main>
+        {window.innerWidth <= 768 && (
+          <CartMobile cart={cart} />
+        )}
         <Footer />
     </div>
   )
