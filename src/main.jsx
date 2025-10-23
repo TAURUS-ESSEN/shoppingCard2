@@ -6,6 +6,7 @@ import App from './App.jsx';
 import Shop from './Shop.jsx';
 import Home from './Home.jsx';
 import Legal from './components/Legal.jsx';
+import Contacts from './components/Contacts.jsx';
 import About from './components/About.jsx';
 import Cart from './components/Cart/Cart';
 import ErrorPage from './components/Error';
@@ -21,9 +22,9 @@ const router = createBrowserRouter([
       {path: 'shop/product/:productId', element: <ProductPage />}, 
       {path: "home", element: <Navigate to="/" replace/> },  
       {path: "about", element: <About /> },  
-      {path: "kontakte", element: <Navigate to="#contacts" replace/> },  
       {path: 'cart', element: <Cart />},
-      {path: 'Legal', element: <Legal />}
+      {path: 'Legal', element: <Legal />},
+      {path: 'contacts', element: <Contacts />}
     ]},
 ])
 createRoot(document.getElementById('root')).render(
