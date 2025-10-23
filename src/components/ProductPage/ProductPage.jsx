@@ -39,7 +39,7 @@ export default function ProductPage() {
                 <div className="bg-tertiary p-2 rounded-lg text-lg ">{product.description}</div>
                 <div>
                     {cart.includes(product.id) ? 
-                    (<button onClick={()=>removeFromCart(product.id)} className="btn">Remove from Cart</button>) : 
+                    (<button onClick={()=>removeFromCart(product.id)} className="btn">Entfernen</button>) : 
                     (<button onClick={()=>addToCart(product.id)} className="btn">In den Warenkorb</button>)}
                 </div>
 
