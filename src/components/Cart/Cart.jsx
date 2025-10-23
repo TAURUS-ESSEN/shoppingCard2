@@ -54,44 +54,44 @@ export default function Cart() {
     <section>
         <h2 className='text-center' id="top">Warenkorb</h2>
       {cart.length !== 0 ? (
-        <div className={styles.container}>
-          <div className='w-full'>
+        <div className="flex flex-col md:flex-row gap-4 text-xl ">
+          <div className='order-2 md:order-1 flex flex-col w-full'>
             {cartQ.map(({ id, qty }) => {
               const product = products.find(p => p.id === id);
               if (!product) return null;
               return (
-                <div className="flex gap-6 items-center justify-between w-full border border-[#03038635] rounded-md mt-[0.05em] transition duration-500;" key={id}>
+                <div className="flex md:items-center gap-4 w-full my-1 p-2 border border-[#03038635] rounded-md" key={id}>
                   <Link to={`/shop/product/${product.id}`}>
-                    <div className="flex items-center gap-2 p-2 ">
-                      <div className="card max-w-[130px]">
+                      <div className="card max-w-[150px]">
                         <img src={`/library/${product.image}`} alt={product.title} />
                       </div>
-                      <div >
-                        <div className="text-secondary max-w-[400px]">{product.title}</div>
-                        <div>von <span className="text-secondary">{product.autor}</span></div>
-                      </div>
-                    </div>
                   </Link>
-                  <div className={styles.buttons}>
+                  <div className= "flex md:items-center flex-col md:flex-row w-full justify-between ">
+                      <div >
+                        <div className="text-secondary max-w-100 leading-none md:leading-[1.4]">{product.title}</div>
+                        <div className='hidden md:block'>von <span className="text-secondary">{product.autor}</span></div>
+                      </div>
                     {/* <div className={styles.productPrice}>${product.price.toFixed(2)}</div> */}
                     <div className={styles.productPrice}>{product.price} €</div>
-                    <div className="border-1 border-primary rounded-sm">
-                      <button onClick={() => dec(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">-</button>
-                      <span className="px-3">{qty}</span>
-                      <button onClick={() => inc(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">+</button>
-                    </div>
-                    <div>
-                      <button onClick={() => deleteItem(id)} className={styles.deleteItem}>
-                        <FontAwesomeIcon icon={faCircleXmark} className="text-secondary fa-2xl" aria-hidden="true"/>
-                        <span className="sr-only">Удалить</span>
-                      </button>
+                    <div className='flex items-center justify-between md:gap-4'>
+                      <div className=" border border-primary  rounded-sm">
+                        <button onClick={() => dec(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">-</button>
+                        <span className="px-3">{qty}</span>
+                        <button onClick={() => inc(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">+</button>
+                      </div>
+                      <div>
+                        <button onClick={() => deleteItem(id)} className={styles.deleteItem}>
+                          <FontAwesomeIcon icon={faCircleXmark} className="text-secondary fa-2xl" aria-hidden="true"/>
+                          <span className="sr-only">Удалить</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               );
             })}
           </div>
-          <div className="min-w-[300px] max-h-[300px] bg-primary text-white p-4 flex flex-col justify-center rounded-xl">
+          <div className="order-1 md:order-2 min-w-[300px] max-h-[300px] bg-primary text-white p-4 flex flex-col justify-center rounded-xl">
             <div className={styles.totalFields}>
               <span>Zwischensumme:</span> <span> {sumBeforeShipping.toFixed(2)} €</span>
             </div>

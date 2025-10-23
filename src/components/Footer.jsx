@@ -10,10 +10,8 @@ export default function Footer() {
                     <div className="flex flex-col">
                         <div className="flex flex-col md:flex-row justify-center items-center md:justify-evenly gap-2 ">
                             <div className='flex flex-col md:flex-row gap-2 md:gap-4 text-xl'>
-                            <p>
-                            Telefon: <a href="tel:+49160123455999" >+49 160 123 455 999</a> ·
-                            E-Mail: <a href="mailto:info@bookworm.de" >info@bookworm.de</a>
-                            </p>
+                                <a href="tel:+49160123455999" >+49 160 123 455 999</a> 
+                                <a href="mailto:info@bookworm.de" >info@bookworm.de</a>
                             </div>
                             <div className='flex'>
                                 <span>
