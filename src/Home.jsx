@@ -3,6 +3,7 @@ import Slider from './components/Slider/Slider'
 import Bestseller from './components/Bestseller/Bestseller'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import Subscribe from "./components/Subscribe/Subscribe";
 
 export default function Home () {
     const navigate = useNavigate();
@@ -36,14 +37,7 @@ export default function Home () {
             <div className=""> 
                 <Bestseller products={products.slice(21,27)}/>
             </div>
-            <div className="bg-secondary md:bg-transparent flex flex-col justify-center items-center gap-2 md:gap-5 p-2 max-w-[330px]  md:max-w-[700px] m-auto rounded-2xl"> 
-                <h2 className="text-center md:uppercase text-white md:text-primary">Erhalte 10 % Rabatt auf deine erste Bestellung</h2>
-                <p className="text-center text-sm md:text-xl text-white md:text-primary">Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.</p>
-                <div className="flex items-center flex-col w-full md:flex-row justify-center gap-2">
-                    <input type="text" placeholder="E-Mail-Adresse eingeben" className="bg-white  md:min-w-[400px]"/>
-                    <button className="btn max-w-25 bg-tertiary text-primary  md:bg-primary md:text-white md:max-w-40">Abonnieren</button>
-                </div>
-            </div>
+            <Subscribe />
             <div className="sliderContainer"> 
                 <Slider products={products.slice(0,20)}/>
             </div>

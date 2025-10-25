@@ -10,6 +10,7 @@ import Contacts from './components/Contacts.jsx';
 import About from './components/About.jsx';
 import Cart from './components/Cart/Cart';
 import ErrorPage from './components/Error';
+import Danke from './components/Danke';
 import ProductPage from './components/ProductPage/ProductPage';
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     children: [
       {index: true, element : <Home />},
       {path: 'shop', element: <Shop />}, 
+      {path: 'Danke', element: <Danke />}, 
       {path: 'shop/product/:productId', element: <ProductPage />}, 
       {path: "home", element: <Navigate to="/" replace/> },  
       {path: "about", element: <About /> },  
