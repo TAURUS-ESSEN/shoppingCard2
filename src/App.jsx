@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CartMobile from './components/Cart/CartMobile'
 import { Outlet } from 'react-router-dom'
+// import Toast from './components/Toast/Toast';
 import './App.css'
 
 function App() {
@@ -37,6 +38,7 @@ useEffect(() => {
   
   return (
     <div className='wrapper'>
+       {/* <Toast /> */}
         <Header cart={cart} setCart={setCart} products={products}/>
         <main>
           <Outlet context={{products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart} }/>

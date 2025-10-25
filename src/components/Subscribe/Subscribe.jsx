@@ -26,17 +26,17 @@ export default function Subscribe() {
   }
 
   return (
-    <section className="bg-secondary md:bg-transparent flex flex-col justify-center items-center gap-2 md:gap-5 p-2 max-w-[330px]  md:max-w-[700px] m-auto rounded-2xl">
-      <h2 className="text-center md:uppercase text-white md:text-primary">
+    <section className="bg-secondary md:bg-transparent flex flex-col justify-center items-center p-2 max-w-82  md:max-w-175 m-auto rounded-2xl text-center ">
+      <h2 className="uppercase text-white md:text-primary">
         Erhalte 10 % Rabatt auf deine erste Bestellung
       </h2>
-      <p className="text-center text-sm md:text-xl text-white md:text-primary">
+      <p className="text-sm md:text-xl text-white md:text-primary">
         Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.
       </p>
-    
+      
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col md:flex-row gap-2 mt-3 justify-center items-center"
+        className="flex flex-col w-full md:max-w-150 px-3 md:p-3 md:flex-row gap-2 mt-3 justify-center items-center md:bg-promo rounded-xl md:border border-secondary md:shadow"
       >
         <input
           type="email"
@@ -44,12 +44,12 @@ export default function Subscribe() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-Mail-Adresse eingeben"
           required
-          className="bg-white  md:min-w-[400px] focus:outline-none focus:ring-2 focus:ring-primary"
+          className="min-h-11 w-full md:min-w-100 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
         />
         <button
           type="submit"
           disabled={loading}
-          className="btn max-w-25 bg-tertiary text-primary  md:bg-primary md:text-white md:max-w-40"
+          className="btn max-w-30 md:px-4 bg-tertiary text-primary  md:bg-primary md:text-white md:max-w-40"
         >
           {loading ? "Senden..." : "Abonnieren"}
         </button> 
