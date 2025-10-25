@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react"; 
 import { Navigate, Link } from "react-router-dom";
 
-export default function Danke() {
+export default function SubscriptionConfirm() {
     const [redirect, setRedirect] = useState(false);
-    const [seconds, setSeconds] = useState(1000);
+    const [seconds, setSeconds] = useState(10);
 
     useEffect(()=> {
         if (seconds < 1) {
             setRedirect(true);
             return
         }
-        const timer = setInterval(() => setSeconds(s => s - 1), 10)
+        const timer = setInterval(() => setSeconds(s => s - 1), 1000)
         return () => clearInterval(timer)
     }, [seconds])
     
