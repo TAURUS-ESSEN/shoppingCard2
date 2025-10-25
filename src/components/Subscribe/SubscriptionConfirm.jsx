@@ -25,7 +25,7 @@ export default function SubscriptionConfirm() {
                 <p>Deine Anmeldung zu unserem Newsletter war erfolgreich.  
                 Ab jetzt erhältst du regelmäßig Neuigkeiten, Buchempfehlungen und exklusive Angebote von Bookworm.</p>
                 You will be automatically redirected to the home page in {seconds} seconds. 
-                <Link to='/' className="bg-secondary text-white p-3 rounded-lg max-w-40">Zur Startseite</Link>
+                <p className='text-center'><Link to='/' className="bg-secondary text-white p-3 rounded-lg max-w-40">Zur Startseite</Link></p>
             </div>
         </>
     )

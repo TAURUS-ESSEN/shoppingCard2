@@ -1,30 +1,59 @@
-import {useState, useEffect} from 'react';
-export default function Subscribe() {
-    const [email, setEmail] = useState('');
-    const [error, setError] = useState('');
-    
-    function checkEmail(value) {
-        if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-            setEmail(value);
-            setError('');
-        }
-        else {
-            setError('falshe Email adresse')
-        }
-        
-    } 
+import { useState } from "react";
 
-    return (
-        <section>
-            <div className="bg-secondary md:bg-transparent flex flex-col justify-center items-center gap-2 md:gap-5 p-2 max-w-[330px]  md:max-w-[700px] m-auto rounded-2xl"> 
-                    <h2 className="text-center md:uppercase text-white md:text-primary">Erhalte 10 % Rabatt auf deine erste Bestellung</h2>
-                    <p className="text-center text-sm md:text-xl text-white md:text-primary">Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.</p>
-                    <div className="flex items-center flex-col w-full md:flex-row justify-center gap-2">
-                        <input type="text" onChange={(e) => checkEmail(e.target.value)} placeholder="E-Mail-Adresse eingeben" className="bg-white  md:min-w-[400px]"/>
-                        <button className="btn max-w-25 bg-tertiary text-primary  md:bg-primary md:text-white md:max-w-40">Abonnieren</button>
-                        <div className='text-red-300'>{error}{email}</div>
-                    </div>
-            </div>
-        </section>
-    )
+export default function Subscribe() {
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
+    setMsg("");
+    try {
+      const r = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await r.json();
+      setMsg(data.message || (r.ok ? "Erfolgreich abonniert!" : "Fehler."));
+    } catch {
+      setMsg("Netzwerkfehler.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <section>
+      <h2 className="text-center md:uppercase text-primary">
+        Erhalte 10 % Rabatt auf deine erste Bestellung
+      </h2>
+      <p className="text-center text-sm md:text-xl text-primary">
+        Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.
+      </p>
+
+      <form onSubmit={onSubmit} className="flex gap-2 justify-center mt-4">
+        <input
+          className="bg-white rounded px-3 py-2 md:min-w-[400px] border"
+          type="email"
+          name="EMAIL"
+          autoComplete="email"
+          placeholder="E-Mail-Adresse eingeben"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <button
+          type="submit"
+          disabled={loading}
+          className="px-4 py-2 rounded bg-primary text-white"
+        >
+          {loading ? "Senden..." : "Abonnieren"}
+        </button>
+      </form>
+
+      {msg && <div className="text-center mt-2">{msg}</div>}
+    </section>
+  );
 }
