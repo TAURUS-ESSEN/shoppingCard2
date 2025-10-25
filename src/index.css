@@ -220,7 +220,7 @@ details[open] .open-icon { display: inline; }
         margin-top: 0.2rem;
         padding: 0.5rem 2rem;
         right: 0;
-        z-index: 2;
+        z-index: 999;
         gap: 0;
         margin-inline: calc(-1 * var(--wrap-pad));
         width: calc(100% + calc(2 * var(--wrap-pad)));
