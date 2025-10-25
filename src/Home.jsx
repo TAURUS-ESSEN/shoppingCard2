@@ -25,12 +25,12 @@ export default function Home () {
                 <div className="flex flex-col px-4 md:p-12 gap-2 justify-center"> 
                     <h1 className="text-xl md:text-6xl text-primary font-semibold animate-fade-up">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
                     <p className="animate-fade-up-200">
-                        <button className="btn animate-fade-up-400" onClick={resetFilter}>Zum Shop 
-                            <FontAwesomeIcon icon={faCartArrowDown} className="text-white"/>
+                        <button className="btn leading-none animate-fade-up-400" onClick={resetFilter}>Zum Shop 
+                            {/* <FontAwesomeIcon icon={faCartArrowDown} className="text-white"/> */}
                         </button>
                     </p>
                 </div>
-                <div className="max-w-60 md:max-w-[600px] overflow-hidden "> 
+                <div className="max-w-65 md:max-w-[600px] overflow-hidden "> 
                     <img src='promo.webp' width='600' alt='promo image' className="animate-zoom-in-slow will-transform block"/>
                 </div>
             </div>
