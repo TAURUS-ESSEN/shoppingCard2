@@ -9,8 +9,16 @@ function App() {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
-  const [cart, setCart] = useState([]);
  
+const [cart, setCart] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('cart')) ?? []; }
+    catch { return []; }
+  });
+
+useEffect(() => {
+    try { localStorage.setItem('cart', JSON.stringify(cart)); }
+    catch {}
+  }, [cart]);
 
   useEffect(()=>{
     if (products.length === 0) {

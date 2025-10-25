@@ -26,17 +26,17 @@ export default function Subscribe() {
   }
 
   return (
-    <section className="flex flex-col items-center gap-3 text-center my-10">
-      <h2 className="text-2xl font-bold text-primary uppercase">
+    <section className="bg-secondary md:bg-transparent flex flex-col justify-center items-center gap-2 md:gap-5 p-2 max-w-[330px]  md:max-w-[700px] m-auto rounded-2xl">
+      <h2 className="text-center md:uppercase text-white md:text-primary">
         Erhalte 10 % Rabatt auf deine erste Bestellung
       </h2>
-      <p className="text-base text-gray-700">
+      <p className="text-center text-sm md:text-xl text-white md:text-primary">
         Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.
       </p>
-
+    
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col md:flex-row gap-2 mt-3"
+        className="flex flex-col md:flex-row gap-2 mt-3 justify-center items-center"
       >
         <input
           type="email"
@@ -44,15 +44,15 @@ export default function Subscribe() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-Mail-Adresse eingeben"
           required
-          className="border rounded px-3 py-2 w-72 md:w-96 focus:outline-none focus:ring-2 focus:ring-primary"
+          className="bg-white  md:min-w-[400px] focus:outline-none focus:ring-2 focus:ring-primary"
         />
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90 transition"
+          className="btn max-w-25 bg-tertiary text-primary  md:bg-primary md:text-white md:max-w-40"
         >
           {loading ? "Senden..." : "Abonnieren"}
-        </button>
+        </button> 
       </form>
 
       {msg && <p className="text-sm text-gray-800 mt-2">{msg}</p>}

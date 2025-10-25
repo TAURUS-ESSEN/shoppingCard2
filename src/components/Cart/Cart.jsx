@@ -6,7 +6,14 @@ import { faCircleXmark} from '@fortawesome/free-solid-svg-icons';
 
 export default function Cart() {
   const {products, cart, setCart}  = useOutletContext();
-  const [cartQ, setCartQ] = useState([])
+  const [cartQ, setCartQ] = useState(() => {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('cart_qty')) || {}; } catch {}
+    const ids = [...new Set(cart)];
+    return ids.map(id => ({ id, qty: Math.max(1, Number(saved[id]) || 1) }));
+  });
+
+  
   let sumBeforeShipping = 0;
   let total = 0;
 
@@ -16,10 +23,23 @@ export default function Cart() {
       const ids = [...new Set(cart)]; 
       return ids.map(id => ({ id, qty: prevQty.get(id) ?? 1 }));
     });
-  },[cart]) 
+  },[cart]);
+
+  useEffect(() => {
+    try {
+      const ids = new Set(cart);
+      const obj = Object.fromEntries(
+        cartQ
+          .filter(({id}) => ids.has(id))
+          .map(({id, qty}) => [id, qty])
+      );
+      localStorage.setItem('cart_qty', JSON.stringify(obj));
+    } catch {}
+  }, [cartQ, cart]);
 
   function deleteItem(id) {
-    setCart(prev=>prev.filter(value=>value!==id))
+    setCart(prev=>prev.filter(value=>value!==id));
+    setCartQ(q=>q.filter(item=>item.id!==id));
   }
 
   function inc(id) {
