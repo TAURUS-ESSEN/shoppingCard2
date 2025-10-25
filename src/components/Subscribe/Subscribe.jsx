@@ -1,29 +1,61 @@
-export default function SubscribeIframe() {
+import { useState } from "react";
+
+export default function Subscribe() {
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setMsg("");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      setMsg(data.message || "Unbekannte Antwort");
+    } catch {
+      setMsg("Netzwerkfehler.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        padding: "20px 0",
-      }}
-    >
-      <iframe
-        title="Brevo Subscribe Form"
-        src="https://5dbc7562.sibforms.com/serve/MUIFALESKxBQh4bi4N4hsUSx4sFCVO1xwKmk-ahL45vqdAqYOmAs2uaYzjhsHOzoKWqCamhFGTYNMSiA_T8eICFBnUZkaxKfUa36X5iOq3Z3dBgxjuaytrCd1t4jbXq2OX4faswGNLs5Lh9NEieug9EgKXGBkaOiWrUeSfnAfC5l7vnxM7FSv5OwrCDO2juNFPrrPExlEGi88TpVVw=="
-        width="100%"
-        height="360"
-        frameBorder="0"
-        scrolling="no"
-        allowFullScreen
-        style={{
-          display: "block",
-          margin: "0 auto",
-          border: "none",
-          overflow: "hidden",
-          maxWidth: "700px",
-          background: "transparent",
-        }}
-      ></iframe>
-    </div>
+    <section className="flex flex-col items-center gap-3 text-center my-10">
+      <h2 className="text-2xl font-bold text-primary uppercase">
+        Erhalte 10 % Rabatt auf deine erste Bestellung
+      </h2>
+      <p className="text-base text-gray-700">
+        Plus exklusiven Zugang zu Neuheiten, Kochrezepten und Buchverlosungen.
+      </p>
+
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col md:flex-row gap-2 mt-3"
+      >
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="E-Mail-Adresse eingeben"
+          required
+          className="border rounded px-3 py-2 w-72 md:w-96 focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+        <button
+          type="submit"
+          disabled={loading}
+          className="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90 transition"
+        >
+          {loading ? "Senden..." : "Abonnieren"}
+        </button>
+      </form>
+
+      {msg && <p className="text-sm text-gray-800 mt-2">{msg}</p>}
+    </section>
   );
 }
