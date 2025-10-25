@@ -26,7 +26,7 @@ export default function Subscribe() {
                         <div className='text-red-300'>{error}{email}</div>
                     </div>
             </div> */}
-            
+            <iframe width="540" height="305" src="https://5dbc7562.sibforms.com/serve/MUIFALESKxBQh4bi4N4hsUSx4sFCVO1xwKmk-ahL45vqdAqYOmAs2uaYzjhsHOzoKWqCamhFGTYNMSiA_T8eICFBnUZkaxKfUa36X5iOq3Z3dBgxjuaytrCd1t4jbXq2OX4faswGNLs5Lh9NEieug9EgKXGBkaOiWrUeSfnAfC5l7vnxM7FSv5OwrCDO2juNFPrrPExlEGi88TpVVw==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
         </section>
     )
 }
