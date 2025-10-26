@@ -116,7 +116,7 @@ html { scroll-behavior: smooth; }
   }
 
   .card {
-    @apply bg-amber-100 flex items-center rounded-xl justify-center p-2 shadow-medium
+    @apply bg-amber-100 flex items-center rounded-xl justify-center p-1 shadow-medium
   }
 
   .pageButtons {
