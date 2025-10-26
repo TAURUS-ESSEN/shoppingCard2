@@ -38,7 +38,7 @@ export default function Header({cart, products}) {
                 <span className="close text-secondary border rounded">☰</span>
             </label>
             
-            <div className="hidden md:flex px-2  min-h-11">
+            <div className="hidden md:flex px-2  min-h-11 hover:scale-105 duration-300">
                 <Link to='cart' className="flex items-center relative" aria-label={`Warenkorb öffnen (${cart.length} Artikel)`}>
                     <span><img src="cart.webp" width="70" alt="Warenkorb icon"/></span>
                     <span className="absolute top-3.5 flex justify-center px-3.5 text-white">{cart.length}</span>
@@ -48,9 +48,9 @@ export default function Header({cart, products}) {
             <div className="searchResults"> 
                 {search!=='' && (
                     products.map(product=>{
-                    if (search.length >= 2 && product.title.match(new RegExp(search, "i"))) {
+                    if (search.length >= 3 && product.title.match(new RegExp(search, "i"))) {
                         return (
-                            <div>
+                            <div className="odd:bg-gray-100 hover:bg-tertiary p-1 ">
                                 <Link to={`shop/product/${product.id}`} state={{ product }}  onClick={() => setSearch('')}>
                                     {product.title} 
                                 </Link>

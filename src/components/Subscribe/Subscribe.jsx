@@ -49,7 +49,7 @@ export default function Subscribe() {
         <button
           type="submit"
           disabled={loading}
-          className="btn max-w-30 md:px-4 bg-tertiary text-primary  md:bg-primary md:text-white md:max-w-40"
+          className="btn max-w-30 md:px-4 bg-tertiary text-primary  md:bg-primary hover:bg-secondary hover:scale-105 md:text-white md:max-w-40"
         >
           {loading ? "Senden..." : "Abonnieren"}
         </button> 
