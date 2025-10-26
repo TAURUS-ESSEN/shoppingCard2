@@ -63,7 +63,6 @@ html { scroll-behavior: smooth; }
 @layer base {
   body, input, button {
     font-family: 'AnekLatin', monospace;
-    /* box-shadow: 0 0 4px rgb(134, 134, 134); */
   }
 
   header {
@@ -77,7 +76,7 @@ html { scroll-behavior: smooth; }
   }
 
   input {
-    @apply border-1 rounded-lg p-2
+    @apply border rounded-lg p-2
   }
 
   a {
@@ -86,7 +85,6 @@ html { scroll-behavior: smooth; }
 
   nav a:hover, .active:hover {
     color: var(--color-primary);
-    /* text-decoration: underline; */
     transition: 0.4s ease;
     transform: scale(1.1)
   }
@@ -112,7 +110,6 @@ html { scroll-behavior: smooth; }
   }
 }
 
-
 @layer components {
   .btn {
     @apply min-h-11 flex items-center justify-center flex-wrap gap-2 p-2
@@ -133,17 +130,13 @@ html { scroll-behavior: smooth; }
 }
 
 .pageButtons button:hover {
-  @apply scale-110 border-1 bg-white text-primary;
+  @apply scale-110 border bg-white text-primary;
 }
 
 .pageButtons button:disabled {
-  @apply bg-[#F3E9DC] text-primary border-1;
+  @apply bg-[#F3E9DC] text-primary border;
 }
 
-/* .toast {
-  @apply min-w-[140px] max-w-40 px-3 py-2 rounded-lg text-white shadow-lg pointer-events-auto whitespace-pre-line opacity-0 -translate-y-[6px] 
-  animate-[toastIn_0.25s_ease_forwards]
-} */
 .addToast, .removeToast {
   @apply p-2 rounded-xl text-sm opacity-75 
 }
@@ -187,7 +180,7 @@ html { scroll-behavior: smooth; }
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.744);
   }
 
-   .animate-fade-up         { animation: fadeUp .8s ease-out both; }
+  .animate-fade-up         { animation: fadeUp .8s ease-out both; }
   .animate-fade-up-200     { animation: fadeUp .8s ease-out .2s both; }
   .animate-fade-up-400     { animation: fadeUp .8s ease-out .4s both; }
 
@@ -205,7 +198,6 @@ html { scroll-behavior: smooth; }
     animation: fadeUpSoft 0.6s ease-out both;
   }
 
-   
 }
 
   /* Hamburger  */

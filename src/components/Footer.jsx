@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faWhatsapp, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 export default function Footer() {
@@ -9,50 +8,52 @@ export default function Footer() {
 
                     <div className="flex flex-col">
                         <div className="flex flex-col md:flex-row justify-center items-center md:justify-evenly gap-2 ">
-                            <div className='flex flex-col md:flex-row gap-2 md:gap-4 text-xl'>
-                                <a href="tel:+49160123455999" >+49 160 123 455 999</a> 
-                                <a href="mailto:info@bookworm.de" >info@bookworm.de</a>
-                            </div>
-                            <div className='flex'>
-                                <span>
-                                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                                        <FontAwesomeIcon icon={faFacebook} size="2xl"   />
+                            <address className="not-italic flex flex-col md:flex-row gap-2 md:gap-4 text-xl">
+                                <a href="tel:+49160123455999" aria-label="Telefonnummer: +49 160 123 455 999">+49 160 123 455 999</a>
+                                <a href="mailto:info@bookworm.de" aria-label="E-Mail an info@bookworm.de senden">info@bookworm.de</a>
+                            </address>
+                            <nav aria-label="Soziale Netzwerke">
+                                <ul className="flex gap-3">
+                                <li>
+                                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook – externe Seite">
+                                    <FontAwesomeIcon icon={faFacebook} size="2xl" aria-hidden="true" />
                                     </a>
-                                </span>
-                                <span>
-                                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                                        <FontAwesomeIcon icon={faInstagram} size="2xl"/>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram – externe Seite">
+                                    <FontAwesomeIcon icon={faInstagram} size="2xl" aria-hidden="true" />
                                     </a>
-                                </span>
-                                <span>
-                                    <a href="https://wa.me/491701234567" target="_blank" rel="noopener noreferrer">
-                                        <FontAwesomeIcon icon={faWhatsapp} size="2xl" />
+                                </li>
+                                <li>
+                                    <a href="https://wa.me/491701234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp – Chat starten, externe Seite">
+                                    <FontAwesomeIcon icon={faWhatsapp} size="2xl" aria-hidden="true" />
                                     </a>
-                                </span>
-                                <span>
-                                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                                        <FontAwesomeIcon icon={faLinkedin} size="2xl"/>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn – externe Seite">
+                                    <FontAwesomeIcon icon={faLinkedin} size="2xl" aria-hidden="true" />
                                     </a>
-                                </span>
-                                <span>
-                                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">
-                                        <FontAwesomeIcon icon={faYoutube} size="2xl" />
+                                </li>
+                                <li>
+                                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube – externe Seite">
+                                    <FontAwesomeIcon icon={faYoutube} size="2xl" aria-hidden="true" />
                                     </a>
-                                </span>
-                            </div>
+                                </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                     
-         
-                <div className="flex flex-wrap justify-center gap-4 ">
-                    <Link to="/legal#versand" >Versand & Rückgabe</Link>
-                    <Link to="/legal#agb">AGB</Link>
-                    <Link to="/legal#zahlung" >Zahlungsmethoden</Link>
-                    <Link to="/legal#impressum">Impressum</Link>
-                    <Link to="/legal#datenschutz">Datenschutz</Link>
-              
-                </div>
-                <div className="border-t-1 text-center pt-2">Copyright 2025 Bookworm. Alle Rechte vorbehalten.</div>
+                    <nav aria-label="Rechtliches">
+                        <ul className="flex flex-wrap justify-center gap-4">
+                            <li><Link to="/legal#versand">Versand & Rückgabe</Link></li>
+                            <li><Link to="/legal#agb">AGB</Link></li>
+                            <li><Link to="/legal#zahlung">Zahlungsmethoden</Link></li>
+                            <li><Link to="/legal#impressum">Impressum</Link></li>
+                            <li><Link to="/legal#datenschutz">Datenschutz</Link></li>
+                        </ul>
+                    </nav>
+                <div className="border-t text-center pt-2">© 2025 Bookworm. Alle Rechte vorbehalten.</div>
         </footer>
     )
 }

@@ -3,7 +3,7 @@ import { Navigate, Link } from "react-router-dom";
 
 export default function Error() {
     const [redirect, setRedirect] = useState(false);
-    const [seconds, setSeconds] = useState(5);
+    const [seconds, setSeconds] = useState(10);
 
     useEffect(()=> {
         if (seconds < 1) {
@@ -20,9 +20,10 @@ export default function Error() {
 
     return (
         <>
-            <div className="errorPage">
-                Page not found. You will be automatically redirected to the home page in {seconds} seconds. 
-                <Link to='/' className="goHome">Go home now</Link>
+            <div className="m-auto flex flex-col justify-center gap-2 items-center text-center py-40">
+                <h2>Seite nicht gefunden. </h2>
+                <p>Du wirst automatisch in {seconds} Sekunden zur Startseite weitergeleitet.</p> 
+                <Link to='/' className="btn max-w-80">Jetzt zur Startseite gehen</Link>
             </div>
         </>
     )

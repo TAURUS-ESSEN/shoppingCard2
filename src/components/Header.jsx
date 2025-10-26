@@ -18,30 +18,34 @@ export default function Header({cart, products}) {
                 </Link>
             </div>
             <input type="checkbox" id="menu-toggler" />
-            <nav className="md:w-full"> 
-                <ul className=" flex w-full justify-evenly items-center gap-8 text-lg md:text-2xl font-medium text-primary">
-                    <Link to='home' className={location.pathname==='/' || location.pathname==='/home' ? 'active' : ''}>Home</Link>
-                    <NavLink to='shop' className={({isActive}) => (isActive? `active` : '')}>Shop</NavLink>
-                    <NavLink to='about' className={({isActive}) => (isActive? `active` : '')}>Über uns</NavLink>
-                    <NavLink to='contacts' className={({isActive}) => (isActive? `active` : '')}>Kontakte</NavLink>
-                </ul>
+            <nav className="md:w-full" role="navigation" aria-label="Hauptnavigation">
+            <ul className="flex w-full justify-evenly items-center gap-8 text-lg md:text-2xl font-medium text-primary">
+                <li><NavLink to="home" className={({isActive}) => (location.pathname==='/' || isActive ? 'active' : '')}>Home</NavLink></li>
+                <li><NavLink to="shop" className={({isActive}) => (isActive ? 'active' : '')}>Shop</NavLink></li>
+                <li><NavLink to="about" className={({isActive}) => (isActive ? 'active' : '')}>Über uns</NavLink></li>
+                <li><NavLink to="contacts" className={({isActive}) => (isActive ? 'active' : '')}>Kontakte</NavLink></li>
+            </ul>
             </nav>
             <input 
                 type="text" 
                 placeholder="Produkt suchen" 
                 onChange={(e)=>searchProduct(e)} 
                 value={search} 
-                className="border border-secondary rounded-lg px-4 min-w-[180px] md:min-w-[350px] shadow-medium "
+                className="min-w-45 md:min-w-85 px-4 border border-secondary rounded-lg shadow-medium "
             />
             <label for="menu-toggler" role="button" tabindex="0">
                 <span className="open text-secondary">☰ </span>
                 <span className="close text-secondary border rounded">☰</span>
             </label>
             
-            <div className="hidden md:flex px-2 md:px-6 min-h-11 hover:scale-105 duration-300">
+            <div className="hidden md:flex min-h-11 px-2 md:px-6 hover:scale-105 duration-300">
                 <Link to='cart' className="flex items-center relative" aria-label={`Warenkorb öffnen (${cart.length} Artikel)`}>
-                    <span><img src="/cart.webp" width="70" alt="Warenkorb icon"/></span>
-                    <span className="absolute top-3.5 flex justify-center px-3.5 text-white">{cart.length}</span>
+                    <span>
+                        <img src="/cart.webp" width="70" alt="" aria-hidden="true"/>
+                    </span>
+                    <span className="absolute top-3.5 flex justify-center px-3.5 text-white">
+                        {cart.length}
+                    </span>
                 </Link>
             </div>
         </header>
