@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark} from '@fortawesome/free-solid-svg-icons';
 
 export default function Cart() {
-  const {products, cart, setCart}  = useOutletContext();
+  const {products, cart, setCart, toasts, setToasts}  = useOutletContext();
   const [cartQ, setCartQ] = useState(() => {
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem('cart_qty')) || {}; } catch {}
@@ -37,9 +37,18 @@ export default function Cart() {
     } catch {}
   }, [cartQ, cart]);
 
-  function deleteItem(id) {
-    setCart(prev=>prev.filter(value=>value!==id));
-    setCartQ(q=>q.filter(item=>item.id!==id));
+  function deleteItem(product) {
+    setCart(prev=>prev.filter(value=>value!==product.id));
+    setCartQ(q=>q.filter(item=>item.id!==product.id));
+    setToasts(prev=>([...prev, {message: (
+      <Link to={`shop/product/${product.id}`} className="text-white" state={{ product }}>
+        <div className='removeToast flex gap-1 items-center justify-center'>
+          <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
+          <span className='text-center'>{product.title.slice(0,20)}.. wurde entfernt</span>
+        </div>
+      </Link>
+    )
+    }]));  
   }
 
   function inc(id) {
@@ -100,7 +109,7 @@ export default function Cart() {
                         <button onClick={() => inc(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">+</button>
                       </div>
                       <div>
-                        <button onClick={() => deleteItem(id)} className={styles.deleteItem}>
+                        <button onClick={() => deleteItem(product)} className={styles.deleteItem}>
                           <FontAwesomeIcon icon={faCircleXmark} className="text-secondary fa-2xl" aria-hidden="true"/>
                           <span className="sr-only">Удалить</span>
                         </button>

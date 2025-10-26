@@ -58,25 +58,25 @@ export default function Liste() {
         setCurrentPage(1);
         setVisible(val); 
     }
-    function addToCart(id, product, img) { 
-        setCart(prev => [...prev, id]);  
+    function addToCart(product) { 
+        setCart(prev => [...prev, product.id]);  
         setToasts(prev=>([...prev, {message: (
-        <Link to={`shop/product/${id}`} className="text-white" state={{ product }}>
+        <Link to={`shop/product/${product.id}`} className="text-white" state={{ product }}>
         <div className='addToast flex gap-1 items-center justify-center'>
-            <span><img className="rounded" src={`/library/${img}`} width="70" height="70" /></span>
-            <span className='text-center'>Buch wurde hinzugefügt</span>
+            <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
+            <span className='text-center'>{product.title.slice(0,20)}.. wurde hinzugefügt</span>
         </div>
         </Link>
         )
         }]));
     }
-    function removeFromCart(id, product, img) { 
-        setCart(prev => prev.filter(v => v !== id)); 
+    function removeFromCart(product) { 
+        setCart(prev => prev.filter(v => v !== product.id)); 
         setToasts(prev=>([...prev, {message: (
-        <Link to={`shop/product/${id}`} className="text-white" state={{ product }}>
+        <Link to={`shop/product/${product.id}`} className="text-white" state={{ product }}>
         <div className='removeToast flex gap-1 items-center justify-center'>
-            <span><img className="rounded"  src={`/library/${img}`} width="70" height="70" /></span>
-            <span className='text-center'>Buch wurde entfernt</span>
+            <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
+            <span className='text-center'>{product.title.slice(0,20)}.. wurde entfernt</span>
         </div>
         </Link>
         )
@@ -110,11 +110,11 @@ export default function Liste() {
                 <div className="flex justify-between items-center p-1 gap-4 w-full">
                 <div className="text-2xl">{product.price} €</div>
                 {cart.includes(product.id) ? (
-                    <button onClick={() => removeFromCart(product.id, product, product.image)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
+                    <button onClick={() => removeFromCart(product)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
                     <img src="minus.webp" width="40" />
                     </button>
                 ) : (
-                    <button onClick={() => addToCart(product.id, product, product.image)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
+                    <button onClick={() => addToCart(product)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
                     <img src="add.webp" width="40" />
                     </button>
                 )}

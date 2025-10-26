@@ -1,10 +1,10 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 import styles from "./product.module.css"
 
 export default function ProductPage() {
     const { productId } = useParams();
-    const {products,cart, setCart} =  useOutletContext();
+    const {products,cart, setCart, toasts, setToasts} =  useOutletContext();
     const location = useLocation();
     let product = location.state?.product;
 
@@ -12,12 +12,26 @@ export default function ProductPage() {
         product = products.find(p => String(p.id) === String(productId));
     }
 
-    function addToCart(id) {
-        setCart(prev=>[...prev,id])
+    function addToCart(product) {
+        setCart(prev=>[...prev,product.id])
+         setToasts(prev=>([...prev, {message: (
+                <div className='addToast flex gap-1 items-center justify-center'>
+                    <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
+                    <span className='text-center'>{product.title.slice(0,20)}.. wurde hinzugefügt</span>
+                </div>
+                )
+                }]));
     }
 
-    function removeFromCart(id) {
-        setCart(prev=>prev.filter(v=>v!==id))
+    function removeFromCart(product) {
+        setCart(prev=>prev.filter(v=>v!==product.id))
+        setToasts(prev=>([...prev, {message: (
+        <div className='removeToast flex gap-1 items-center justify-center'>
+            <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
+            <span className='text-center'>{product.title.slice(0,20)}.. wurde entfernt</span>
+        </div>
+        )
+        }]));
     }
 
     if (!product) {
@@ -39,8 +53,8 @@ export default function ProductPage() {
                 <div className="bg-tertiary p-2 rounded-lg text-lg ">{product.description}</div>
                 <div>
                     {cart.includes(product.id) ? 
-                    (<button onClick={()=>removeFromCart(product.id)} className="btn">Entfernen</button>) : 
-                    (<button onClick={()=>addToCart(product.id)} className="btn">In den Warenkorb</button>)}
+                    (<button onClick={()=>removeFromCart(product)} className="btn">Entfernen</button>) : 
+                    (<button onClick={()=>addToCart(product)} className="btn">In den Warenkorb</button>)}
                 </div>
 
             </div>
