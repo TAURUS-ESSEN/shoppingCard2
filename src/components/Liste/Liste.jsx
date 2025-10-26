@@ -100,7 +100,7 @@ export default function Liste() {
             </select>
         </div>
 
-        <div className="flex flex-wrap gap-3 md:gap-4 justify-center mt-2 bg-amber-200">
+        <div className="flex flex-wrap gap-3 md:gap-4 justify-center mt-2">
             {productsToRender.map(product => (
             <div className="card flex flex-col gap-2 max-w-40 md:max-w-[210px] mb-2 bg-promo fade-up-soft border-2 border-transparent hover:border-secondary transition-transform duration-400"
                 key={product.id}>
