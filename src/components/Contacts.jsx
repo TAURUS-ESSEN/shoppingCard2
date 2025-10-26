@@ -9,7 +9,7 @@ export default function Contacts() {
                 <div className="md:max-w-120 rounded-xl shadow-medium">
                     <img src="map.webp" className="rounded-xl" />
                 </div>
-                <div className="relative">
+                <div className="relative shake">
                     <div className="absolute md:-top-35 "><img src="openTime.webp" /></div>
                     <div className="flex flex-col gap-2 rounded-xl p-6 md:max-w-100 md:max-h-60 shadow-medium bg-secondary text-white relative 25">
                         <h2 className="text-center text-white">Öffnungszeiten:</h2>

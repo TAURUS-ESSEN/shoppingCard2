@@ -159,6 +159,18 @@ html { scroll-behavior: smooth; }
   @apply flex items-center border-2 border-secondary text-secondary px-3 md:px-6 py-3 rounded-2xl font-medium  shadow-medium hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1
 }
 
+.shake:hover img, .shake:hover div  {
+  animation: wobble 0.6s ease-in-out;
+}
+
+@keyframes wobble {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(3deg); }
+  50%  { transform: rotate(-3deg); }
+  75%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
 }
 
 @layer utilities {

@@ -62,11 +62,11 @@ export default function ProductPage() {
                 <div>
                     {cart.includes(product.id) ? 
                     (<button onClick={()=>removeFromCart(product)} className="btn">
-                        <span className="max-w-30 text-left">Entfernen</span>
+                        <span className="max-w-30 text-left text-lg ">Entfernen</span>
                         <span><img  className="f-wull" src="/remove-white.webp" width="40"/></span>
                     </button>) : 
-                    (<button onClick={()=>addToCart(product)} className="btn ">
-                        <span className="max-w-30 text-left">In den Warenkorb </span>
+                    (<button onClick={()=>addToCart(product)} className="btn text-lg leading-none">
+                        <span className="max-w-25 text-center">In den Warenkorb </span>
                         <span><img  className="f-wull" src="/add-white.webp" width="40"/></span>
                     </button>)}
                 </div>
