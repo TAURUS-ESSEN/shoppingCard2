@@ -1,10 +1,11 @@
-import { useLocation, useParams } from "react-router-dom";
-import { useOutletContext, Link } from "react-router-dom";
-import styles from "./product.module.css"
+import { useLocation, useParams, useOutletContext, Link, useNavigate } from "react-router-dom";
+
+ 
 
 export default function ProductPage() {
+    const navigate = useNavigate();
     const { productId } = useParams();
-    const {products,cart, setCart, toasts, setToasts} =  useOutletContext();
+    const {products, cart, selectedCategory, setSelectedCategory, setCart, toasts, setToasts} =  useOutletContext();
     const location = useLocation();
     let product = location.state?.product;
 
@@ -12,9 +13,14 @@ export default function ProductPage() {
         product = products.find(p => String(p.id) === String(productId));
     }
 
+    function goToCategory(value) {
+        setSelectedCategory([value])
+        navigate(`/shop`);
+    }
+
     function addToCart(product) {
         setCart(prev=>[...prev,product.id])
-         setToasts(prev=>([...prev, {message: (
+        setToasts(prev=>([...prev, {message: (
                 <div className='addToast flex gap-1 items-center justify-center'>
                     <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
                     <span className='text-center'>{product.title.slice(0,20)}.. wurde hinzugefügt</span>
@@ -45,10 +51,12 @@ export default function ProductPage() {
                 <img src={`/library/${product.image}`} alt={product.title} className="rounded-lg"/>
             </div>
             <div className="fade-up-soft flex flex-col gap-2">
-                <div className=""><h2>{product.title}</h2></div>
+                <div className="">
+                    <h2>{product.title}</h2>
+                </div>
                 {/* <div className={styles.price}>${product.price.toFixed(2)}</div> */}
                 <div className="text-lg ">von:<span className="font-medium md:font-semibold text-secondary"> {product.autor}</span></div>
-                <div className="text-lg border-b border-promo ">Category:<span className="font-semibold text-secondary"> {product.category}</span></div>
+                <div className="text-lg border-b border-promo ">Category:<span className="font-semibold text-secondary"> <button onClick={() => goToCategory(product.category)}>{product.category}</button></span></div>
                 <div className="font-bold text-2xl md:text-4xl text-secondary">${product.price}</div>
                 <div className="bg-tertiary p-2 rounded-lg text-lg ">{product.description}</div>
                 <div>

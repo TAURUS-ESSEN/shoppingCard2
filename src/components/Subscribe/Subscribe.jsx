@@ -26,7 +26,7 @@ export default function Subscribe() {
   }
 
   return (
-    <section className="bg-secondary md:bg-transparent flex flex-col justify-center items-center p-2 max-w-82  md:max-w-175 m-auto rounded-2xl text-center ">
+    <section className="bg-secondary md:bg-transparent flex flex-col justify-center items-center p-2 max-w-82  md:max-w-175 m-auto rounded-2xl text-center">
       <h2 className="uppercase text-white md:text-primary">
         Erhalte 10 % Rabatt auf deine erste Bestellung
       </h2>

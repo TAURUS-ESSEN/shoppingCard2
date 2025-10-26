@@ -62,10 +62,10 @@ export default function Liste() {
         setCart(prev => [...prev, product.id]);  
         setToasts(prev=>([...prev, {message: (
         <Link to={`shop/product/${product.id}`} className="text-white" state={{ product }}>
-        <div className='addToast flex gap-1 items-center justify-center'>
-            <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
-            <span className='text-center'>{product.title.slice(0,20)}.. wurde hinzugefügt</span>
-        </div>
+            <div className='addToast flex gap-1 items-center justify-center'>
+                <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
+                <span className='text-center'>{product.title.slice(0,20)}.. wurde hinzugefügt</span>
+            </div>
         </Link>
         )
         }]));
@@ -75,7 +75,9 @@ export default function Liste() {
         setToasts(prev=>([...prev, {message: (
         <Link to={`shop/product/${product.id}`} className="text-white" state={{ product }}>
         <div className='removeToast flex gap-1 items-center justify-center'>
-            <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
+            <span className='w-full'>
+                <img className="rounded" src={`/library/${product.image}`} width="70" height="70" />
+            </span>
             <span className='text-center'>{product.title.slice(0,20)}.. wurde entfernt</span>
         </div>
         </Link>
@@ -93,51 +95,79 @@ export default function Liste() {
         <div className="hidden md:block">
             <label htmlFor="select" className={styles.selector}>Produkte je Seite</label>
             <select id="select" className="border rounded p-1"
-                    onChange={changeItemsPerPage} value={itemsPerPage}>
+                    onChange={changeItemsPerPage} value={itemsPerPage} aria-label="Produkte pro Seite wählen">
             <option value="8">8</option>
             <option value="16">16</option>
             <option value={Math.max(1, filteredProducts.length)}>All</option>
             </select>
         </div>
 
-        <div className="flex flex-wrap gap-3 md:gap-4 justify-center mt-2">
+        <ul className="flex flex-wrap gap-3 md:gap-4 justify-center mt-2">
             {productsToRender.map(product => (
-            <div className="card flex flex-col gap-2 max-w-40 md:max-w-[210px] mb-2 bg-promo fade-up-soft border-2 border-transparent hover:border-secondary transition-transform duration-400"
+            <li className="card flex flex-col gap-2 max-w-40 md:max-w-[210px] mb-2 bg-promo fade-up-soft border-2 border-transparent hover:border-secondary transition-transform duration-400"
                 key={product.id}>
-                <Link to={`product/${product.id}`} className={styles.link} state={{ product }}>
-                <img src={`/library/${product.image}`} alt={product.title} className="rounded-lg" />
+                <Link 
+                    to={`product/${product.id}`} 
+                    className={styles.link} 
+                    state={{ product }} 
+                    aria-label={`Zum Produkt ${product.title}`}
+                >
+                    <img 
+                        src={`/library/${product.image}`} 
+                        alt={`Buchcover: ${product.title}`} 
+                        className="rounded-lg" 
+                    />
                 </Link>
                 <div className="flex justify-between items-center p-1 gap-4 w-full">
-                <div className="text-2xl">{product.price} €</div>
-                {cart.includes(product.id) ? (
-                    <button onClick={() => removeFromCart(product)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
-                    <img src="minus.webp" width="40" />
-                    </button>
-                ) : (
-                    <button onClick={() => addToCart(product)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
-                    <img src="add.webp" width="40" />
-                    </button>
-                )}
+                    <div className="text-2xl">{product.price} €</div>
+                    {cart.includes(product.id) ? (
+                        <button 
+                            type="button"
+                            onClick={() => removeFromCart(product)} 
+                            className="hover:cursor-pointer hover:scale-110 transition-transform duration-200"
+                            aria-label={`Aus dem Warenkorb entfernen: ${product.title}`}
+                        >
+                            <img src="minus.webp" width="40" height="40" alt="" aria-hidden="true" />
+                        </button>
+                    ) : (
+                        <button
+                            type="button"
+                            onClick={() => addToCart(product)} 
+                            className="hover:cursor-pointer hover:scale-110 transition-transform duration-200"
+                            aria-label={`Zum Warenkorb hinzufügen: ${product.title}`}
+                        >
+                            <img src="add.webp" width="40" height="40" alt="" aria-hidden="true" />
+                        </button>
+                    )}
                 </div>
-            </div>
+            </li>
             ))}
-        </div>
+        </ul>
 
         {!isMobile && itemsPerPage !== filteredProducts.length && (
-            <div className="pageButtons">
+            <div className="pageButtons" aria-label="Seitennavigation">
             {currentPage !== 1 && (
-                <button onClick={() => changePage(currentPage - 1)} disabled={currentPage === 1}>Prev</button>
+                <button 
+                    type="button" 
+                    onClick={() => changePage(currentPage - 1)} 
+                    disabled={currentPage === 1} 
+                    aria-label="Vorherige Seite"
+                >
+                    Prev
+                </button>
             )}
             {tempArray.map(page => (
-                <button key={page}
-                className={`${styles.pageButton} ${page === currentPage ? styles.activePage : ''}`}
-                onClick={() => changePage(page)}
-                disabled={page === currentPage}>
+                <button 
+                    type="button"
+                    key={page}
+                    className={`${styles.pageButton} ${page === currentPage ? styles.activePage : ''}`}
+                    onClick={() => changePage(page)}
+                    disabled={page === currentPage}>
                 {page}
                 </button>
             ))}
             {currentPage !== tempArray.length && (
-                <button onClick={() => changePage(currentPage + 1)}>Next</button>
+                <button type="button" onClick={() => changePage(currentPage + 1)} aria-label="Nächste Seite">Next</button>
             )}
             </div>
         )}

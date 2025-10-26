@@ -27,7 +27,7 @@ export default function Category() {
 
 
     return (
-        <>
+        <section>
         {category.length > 0 && (
             <>
             {!isMobile && (
@@ -73,6 +73,6 @@ export default function Category() {
             )}
             </>
         )}
-        </>
+        </section>
     );
     }

@@ -1,6 +1,6 @@
 export default function Contacts() {
     return (
-        <section className="flex flex-col gap-4 mt-2">
+        <section className="flex flex-col gap-4 ">
             <h2>Hier finden Sie uns</h2>
             <p>Buchhandlung Bookworm <br />
             Lindenstraße 42, 45127 Essen, Deutschland </p>

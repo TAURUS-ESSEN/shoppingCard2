@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <section className="flex flex-col md:flex-row gap-4 about leading-relaxed mt-2 md:mt-4">
+        <section className="flex flex-col md:flex-row gap-4 about leading-relaxed ">
             <div>
                 <article className="flex flex-col gap-2 p-4">
                     <h2>Über uns</h2>

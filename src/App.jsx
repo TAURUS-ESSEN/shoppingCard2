@@ -11,11 +11,11 @@ function App() {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [toasts, setToasts] = useState([]);
- 
-const [cart, setCart] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('cart')) ?? []; }
-    catch { return []; }
-  });
+
+  const [cart, setCart] = useState(() => {
+      try { return JSON.parse(localStorage.getItem('cart')) ?? []; }
+      catch { return []; }
+    });
 
 useEffect(() => {
     try { localStorage.setItem('cart', JSON.stringify(cart)); }
@@ -39,7 +39,7 @@ useEffect(() => {
   
   return (
     <div className='wrapper'>
-       <Toast toasts={toasts} setToasts={setToasts}/>
+        <Toast toasts={toasts} setToasts={setToasts}/>
         <Header cart={cart} setCart={setCart} products={products}/>
         <main>
           <Outlet context={{products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart, toasts, setToasts} }/>

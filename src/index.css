@@ -106,6 +106,10 @@ html { scroll-behavior: smooth; }
   .about img {
     @apply rounded-xl md:max-w-[500px]
   } 
+
+  section {
+    @apply md:mt-4
+  }
 }
 
 
@@ -149,6 +153,10 @@ html { scroll-behavior: smooth; }
 
 .removeToast {
   @apply bg-red-600
+}
+
+.categoryButton {
+  @apply flex items-center border-2 border-secondary text-secondary px-3 md:px-6 py-3 rounded-2xl font-medium  shadow-medium hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1
 }
 
 }
