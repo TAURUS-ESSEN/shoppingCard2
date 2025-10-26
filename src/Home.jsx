@@ -25,7 +25,7 @@ export default function Home () {
                 <div className="flex flex-col px-4 md:p-12 gap-2 justify-center"> 
                     <h1 className="text-xl md:text-6xl text-primary font-semibold animate-fade-up">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
                     <p className="animate-fade-up-200">
-                        <button className="btn leading-none animate-fade-up-400" onClick={resetFilter}>Zum Shop 
+                        <button className="btn border-2 border-white w-30 md:p-4 leading-none animate-fade-up-400" onClick={resetFilter}>Zum Shop 
                             {/* <FontAwesomeIcon icon={faCartArrowDown} className="text-white"/> */}
                         </button>
                     </p>

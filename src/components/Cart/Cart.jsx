@@ -89,7 +89,7 @@ export default function Cart() {
               const product = products.find(p => p.id === id);
               if (!product) return null;
               return (
-                <div className="flex md:items-center gap-4 w-full my-1 p-2 border border-[#03038635] rounded-md" key={id}>
+                <div className="flex md:items-center gap-4 w-full  p-1 md:p-2 border border-[#03038635] even:bg-tertiary rounded-md" key={id}>
                   <Link to={`/shop/product/${product.id}`}>
                       <div className="card max-w-[150px]">
                         <img src={`/library/${product.image}`} alt={product.title} />

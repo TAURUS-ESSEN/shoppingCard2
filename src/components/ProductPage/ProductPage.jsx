@@ -48,13 +48,19 @@ export default function ProductPage() {
                 <div className=""><h2>{product.title}</h2></div>
                 {/* <div className={styles.price}>${product.price.toFixed(2)}</div> */}
                 <div className="text-lg ">von:<span className="font-medium md:font-semibold text-secondary"> {product.autor}</span></div>
-                <div className="text-lg border-b-1 border-promo ">Category:<span className="font-semibold text-secondary"> {product.category}</span></div>
+                <div className="text-lg border-b border-promo ">Category:<span className="font-semibold text-secondary"> {product.category}</span></div>
                 <div className="font-bold text-2xl md:text-4xl text-secondary">${product.price}</div>
                 <div className="bg-tertiary p-2 rounded-lg text-lg ">{product.description}</div>
                 <div>
                     {cart.includes(product.id) ? 
-                    (<button onClick={()=>removeFromCart(product)} className="btn">Entfernen</button>) : 
-                    (<button onClick={()=>addToCart(product)} className="btn">In den Warenkorb</button>)}
+                    (<button onClick={()=>removeFromCart(product)} className="btn">
+                        <span className="max-w-30 text-left">Entfernen</span>
+                        <span><img  className="f-wull" src="/remove-white.webp" width="40"/></span>
+                    </button>) : 
+                    (<button onClick={()=>addToCart(product)} className="btn ">
+                        <span className="max-w-30 text-left">In den Warenkorb </span>
+                        <span><img  className="f-wull" src="/add-white.webp" width="40"/></span>
+                    </button>)}
                 </div>
 
             </div>

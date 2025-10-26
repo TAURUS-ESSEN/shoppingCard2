@@ -1,4 +1,16 @@
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
 export default function Legal() {
+    const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    const element = document.getElementById(id);
+    if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [location]);
+
   return (
     <section className="my-10 px-4">
       <nav className="sticky top-2 z-10 bg-white/70 backdrop-blur rounded-2xl shadow p-3 flex flex-wrap gap-3 mb-8">

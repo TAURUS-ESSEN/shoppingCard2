@@ -111,7 +111,8 @@ html { scroll-behavior: smooth; }
 
 @layer components {
   .btn {
-    @apply h-11 flex items-center justify-center flex-wrap gap-2 px-2 md:px-6   bg-primary rounded-xl text-base md:text-2xl text-white font-medium
+    @apply min-h-11 flex items-center justify-center flex-wrap gap-2 p-2
+    bg-primary rounded-xl text-base md:text-2xl text-white font-medium shadow-medium
     hover:cursor-pointer hover:bg-secondary transition duration-300
   }
 

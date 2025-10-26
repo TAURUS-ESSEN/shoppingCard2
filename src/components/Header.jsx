@@ -29,17 +29,18 @@ export default function Header({cart, products}) {
                 placeholder="Produkt suchen" 
                 onChange={(e)=>searchProduct(e)} 
                 value={search} 
-                className="search1 border-2 border-secondary rounded-lg px-4 min-w-[180px] md:min-w-[350px]"
+                className="search1 border border-secondary rounded-lg px-4 min-w-[180px] md:min-w-[350px] shadow-medium"
             />
             <label for="menu-toggler" role="button" tabindex="0">
                 <span className="open text-secondary">☰ </span>
                 <span className="close text-secondary border rounded">☰</span>
             </label>
             
-            <div className=" hidden md:flex pl-6  ">
-                <Link to='cart' className="flex items-center">
-                    <i className="fa-solid fa-bag-shopping fa-2xl relative" style={{color: '#7a5230'}}></i>
-                    <span className="relative -left-4.5 top-1 text-white w-10">{cart.length}</span>
+            <div className="hidden md:flex px-2  min-h-11">
+                <Link to='cart' className="flex items-center relative">
+                    {/* <i className="fa-solid fa-bag-shopping fa-2xl relative bg-secondary"></i> */}
+                    <span><img src="cart.webp" width="70"/></span>
+                    <span className="absolute top-3.5 flex justify-center px-3.5 text-white  ">{cart.length}</span>
                 </Link>
             </div>
         </header>

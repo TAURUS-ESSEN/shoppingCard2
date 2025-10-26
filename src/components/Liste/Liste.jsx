@@ -91,7 +91,7 @@ export default function Liste() {
     return (
         <section>
         <div className="hidden md:block">
-            <label htmlFor="select" className={styles.selector}>Products per Page</label>
+            <label htmlFor="select" className={styles.selector}>Produkte je Seite</label>
             <select id="select" className="border rounded p-1"
                     onChange={changeItemsPerPage} value={itemsPerPage}>
             <option value="8">8</option>
