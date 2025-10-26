@@ -31,16 +31,16 @@ export default function Header({cart, products}) {
                 placeholder="Produkt suchen" 
                 onChange={(e)=>searchProduct(e)} 
                 value={search} 
-                className="search1 border border-secondary rounded-lg px-4 min-w-[180px] md:min-w-[350px] shadow-medium"
+                className="border border-secondary rounded-lg px-4 min-w-[180px] md:min-w-[350px] shadow-medium "
             />
             <label for="menu-toggler" role="button" tabindex="0">
                 <span className="open text-secondary">☰ </span>
                 <span className="close text-secondary border rounded">☰</span>
             </label>
             
-            <div className="hidden md:flex px-2  min-h-11 hover:scale-105 duration-300">
+            <div className="hidden md:flex px-2 md:px-6 min-h-11 hover:scale-105 duration-300">
                 <Link to='cart' className="flex items-center relative" aria-label={`Warenkorb öffnen (${cart.length} Artikel)`}>
-                    <span><img src="cart.webp" width="70" alt="Warenkorb icon"/></span>
+                    <span><img src="/cart.webp" width="70" alt="Warenkorb icon"/></span>
                     <span className="absolute top-3.5 flex justify-center px-3.5 text-white">{cart.length}</span>
                 </Link>
             </div>

@@ -135,7 +135,11 @@ export default function Cart() {
             </div>
             <div className='flex flex-col justify-center items-center'>
               <div className="my-4 text-base">*Ab 50 € versandkostenfrei</div>
-              <div><button className="bg-[#F6EDE1] text-primary rounded-lg px-6 py-2 " onClick={()=>openModal('Bezahlen')}>Zur Kasse gehen</button></div>
+              <div>
+                <button className="bg-promo text-primary rounded-lg px-6 py-2 hover:scale-105 duration-300" onClick={()=>openModal('Bezahlen')}>
+                  Zur Kasse gehen
+                </button>
+              </div>
             </div>
           </div>
       </div>

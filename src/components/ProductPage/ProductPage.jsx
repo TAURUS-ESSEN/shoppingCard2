@@ -50,7 +50,7 @@ export default function ProductPage() {
             <div className="card max-w-[250px] md:min-w-[270px] rounded-xl shadow fade-up-soft">
                 <img src={`/library/${product.image}`} alt={product.title} className="rounded-lg"/>
             </div>
-            <div className="fade-up-soft flex flex-col gap-2">
+            <div className="fade-up-soft flex flex-col gap-2 md:gap-6">
                 <div className="">
                     <h2>{product.title}</h2>
                 </div>
