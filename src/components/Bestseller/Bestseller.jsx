@@ -14,7 +14,7 @@ export default function Bestseller({products}) {
             state={{ product }}
             className="block h-full"
             >
-            <div className="flex flex-col h-full overflow-hidden">
+            <div className="flex flex-col h-full ">
                 <div className="card h-[210px]  border-4 border-transparent hover:border-amber-600 rounded-xl transition duration-300">
                 <img
                     src={`/library/${product.image}`}

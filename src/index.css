@@ -58,11 +58,12 @@ html { scroll-behavior: smooth; }
   --color-promo: #F3E9DC;
   --color-promo2: #F6EDE1;
   --shadow-soft: 0 1px 4px rgb(204, 203, 203);
+  --shadow-medium: 0 0 4px rgb(134, 134, 134);
 }
-
 @layer base {
   body, input, button {
     font-family: 'AnekLatin', monospace;
+    /* box-shadow: 0 0 4px rgb(134, 134, 134); */
   }
 
   header {
@@ -115,7 +116,7 @@ html { scroll-behavior: smooth; }
   }
 
   .card {
-    @apply bg-amber-100 flex items-center rounded-xl justify-center p-2 
+    @apply bg-amber-100 flex items-center rounded-xl justify-center p-2 shadow-medium
   }
 
   .pageButtons {
