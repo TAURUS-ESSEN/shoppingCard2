@@ -155,7 +155,7 @@ html { scroll-behavior: smooth; }
 @layer utilities {
   
   .active {
-    @apply md:bg-promo2 font-semibold text-secondary p-1 md:p-3 rounded-xl flex justify-center items-center 
+    @apply md:bg-promo2 font-semibold text-secondary p-1 md:p-3 rounded-xl flex justify-center items-center shadow-soft
   }
 
   .shadow {

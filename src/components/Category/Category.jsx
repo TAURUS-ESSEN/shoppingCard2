@@ -31,7 +31,7 @@ export default function Category() {
         {category.length > 0 && (
             <>
             {!isMobile && (
-                <div className="flex flex-col min-w-[250px] p-4 rounded-xl bg-primary text-white">
+                <div className="flex flex-col min-w-[250px] p-4 rounded-xl bg-primary text-white border-3 border-white shadow-medium">
                 {category.map(value => (
                     <label key={value} className="flex items-center">
                     <input
@@ -51,7 +51,7 @@ export default function Category() {
                 <div className="p-2">
                     
                 <select
-                    className="w-full border-2 rounded-md p-2 bg-primary text-white"
+                    className="w-full rounded-md p-2 bg-primary text-white border-3 border-white shadow-medium"
                     value={currentMobileValue}
                     onChange={(e) => {
                     const val = e.target.value;

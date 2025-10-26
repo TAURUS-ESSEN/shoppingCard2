@@ -6,12 +6,12 @@ export default function Contacts() {
             Lindenstraße 42, 45127 Essen, Deutschland </p>
             
             <div className="flex flex-col justify-around md:flex-row gap-4">
-                <div className="md:max-w-120 rounded-xl shadowHard">
+                <div className="md:max-w-120 rounded-xl shadow-medium">
                     <img src="map.webp" className="rounded-xl" />
                 </div>
                 <div className="relative">
                     <div className="absolute md:-top-35 "><img src="openTime.webp" /></div>
-                    <div className="flex flex-col gap-2 border rounded-xl p-6 md:max-w-100 md:max-h-60  bg-secondary text-white relative 25">
+                    <div className="flex flex-col gap-2 rounded-xl p-6 md:max-w-100 md:max-h-60 shadow-medium bg-secondary text-white relative 25">
                         <h2 className="text-center text-white">Öffnungszeiten:</h2>
                         Montag - Freitag: 10:00 - 18:00 Uhr <br />
                         Samstag: 10:00-16:00 Uhr <br />
