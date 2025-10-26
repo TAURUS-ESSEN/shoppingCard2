@@ -37,10 +37,9 @@ export default function Header({cart, products}) {
             </label>
             
             <div className="hidden md:flex px-2  min-h-11">
-                <Link to='cart' className="flex items-center relative">
-                    {/* <i className="fa-solid fa-bag-shopping fa-2xl relative bg-secondary"></i> */}
-                    <span><img src="cart.webp" width="70"/></span>
-                    <span className="absolute top-3.5 flex justify-center px-3.5 text-white  ">{cart.length}</span>
+                <Link to='cart' className="flex items-center relative" aria-label={`Warenkorb öffnen (${cart.length} Artikel)`}>
+                    <span><img src="cart.webp" width="70"  aria-hidden="true"/></span>
+                    <span className="absolute top-3.5 flex justify-center px-3.5 text-white">{cart.length}</span>
                 </Link>
             </div>
         </header>

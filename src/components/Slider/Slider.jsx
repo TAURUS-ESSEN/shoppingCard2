@@ -49,7 +49,7 @@ useEffect(() => {
                         <li className="flex-none w-[200px] px-2" key={product.id}>
                             <Link to={`/shop/product/${product.id}`} state={{ product }}>
                                 <div className="card">
-                                    <img src={`/library/${product.image}`} alt={product.title}/>
+                                    <img src={`/library/${product.image}`} className="rounded-lg" alt={product.title}/>
                                 </div>
                                 {/* <div className="">{product.title}</div>  */}
                             </Link>

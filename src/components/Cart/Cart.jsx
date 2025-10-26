@@ -3,9 +3,11 @@ import styles from './cart.module.css';
 import { useOutletContext, Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark} from '@fortawesome/free-solid-svg-icons';
+import Checkout from '../Modal/Checkout';
 
 export default function Cart() {
   const {products, cart, setCart, toasts, setToasts}  = useOutletContext();
+  const [modal, setModal] = useState({isOpen: false});
   const [cartQ, setCartQ] = useState(() => {
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem('cart_qty')) || {}; } catch {}
@@ -13,7 +15,8 @@ export default function Cart() {
     return ids.map(id => ({ id, qty: Math.max(1, Number(saved[id]) || 1) }));
   });
 
-  
+    const openModal = () => setModal({isOpen: true});
+    const closeModal = () => setModal({isOpen: false});
   let sumBeforeShipping = 0;
   let total = 0;
 
@@ -84,7 +87,7 @@ export default function Cart() {
         <h2 className='text-center' id="top">Warenkorb</h2>
       {cart.length !== 0 ? (
         <div className="flex flex-col md:flex-row gap-4 text-xl ">
-          <div className='order-2 md:order-1 flex flex-col w-full'>
+          <div className='order-2 md:order-1 flex flex-col gap-2 w-full'>
             {cartQ.map(({ id, qty }) => {
               const product = products.find(p => p.id === id);
               if (!product) return null;
@@ -92,7 +95,7 @@ export default function Cart() {
                 <div className="flex md:items-center gap-4 w-full  p-1 md:p-2 border border-[#03038635] even:bg-tertiary rounded-md" key={id}>
                   <Link to={`/shop/product/${product.id}`}>
                       <div className="card max-w-[150px]">
-                        <img src={`/library/${product.image}`} alt={product.title} />
+                        <img src={`/library/${product.image}`} alt={product.title} className='rounded-lg'/>
                       </div>
                   </Link>
                   <div className= "flex md:items-center flex-col md:flex-row w-full justify-between ">
@@ -110,7 +113,7 @@ export default function Cart() {
                       </div>
                       <div>
                         <button onClick={() => deleteItem(product)} className={styles.deleteItem}>
-                          <FontAwesomeIcon icon={faCircleXmark} className="text-secondary fa-2xl" aria-hidden="true"/>
+                          <FontAwesomeIcon icon={faCircleXmark} className="text-secondary fa-2xl hover:text-red-600" aria-hidden="true"/>
                           <span className="sr-only">Удалить</span>
                         </button>
                       </div>
@@ -132,12 +135,15 @@ export default function Cart() {
             </div>
             <div className='flex flex-col justify-center items-center'>
               <div className="my-4 text-base">*Ab 50 € versandkostenfrei</div>
-              <div><button className="bg-[#F6EDE1] text-primary rounded-lg px-6 py-2 ">Zur Kasse gehen</button></div>
+              <div><button className="bg-[#F6EDE1] text-primary rounded-lg px-6 py-2 " onClick={()=>openModal('Bezahlen')}>Zur Kasse gehen</button></div>
             </div>
           </div>
       </div>
       ) : (<div className={styles.emptyCart}><h2>Warenkorb ist leer</h2></div>)
     }
+    {modal.isOpen && (
+      <Checkout closeModal={closeModal} />
+    )}
     </section>
   )
 }

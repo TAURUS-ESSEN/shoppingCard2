@@ -1,0 +1,85 @@
+/*  MODAL WINDOW STYLES */
+.modalOverlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.478);
+}
+
+.modalOverlay {
+  animation: overlayIn .62s ease forwards; 
+}
+
+.modalContent {
+  overflow-x: hidden;
+  max-width: 100%;
+  opacity: 0;
+  transform: translateY(6px) scale(.985);
+  animation: contentIn .24s ease .06s forwards; 
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes contentIn {
+  from { opacity: 0; transform: translateY(6px) scale(.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modalContent {
+  border-radius: 8px;
+  background-color: #493421;
+  padding: 0.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  padding: 0.3rem;
+  position: relative;
+  justify-content: space-between;
+}
+
+.modalTitle {
+  color: white;
+  margin: 0;
+}
+
+.modalContent :is(button:enabled:hover){ 
+  color: var(--text-invert);
+}
+
+.modalHeader button:enabled:hover {
+  color: yellow;
+  transform: scale(1.2);
+}
+
+.modalHeader button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  font-size: 1.5rem;
+  right: -0.5rem;
+  top: -0.3rem;
+  color: white;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.modalContent :is(button, input, select):focus-visible{
+  outline: none;
+  border: 1px solid var(--focus-border);
+  box-shadow: 0 0 5px var(--focus-shadow);
+}
