@@ -3,13 +3,14 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CartMobile from './components/Cart/CartMobile'
 import { Outlet } from 'react-router-dom'
-// import Toast from './components/Toast/Toast';
+import Toast from './components/Toast/Toast';
 import './App.css'
 
 function App() {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
+  const [toasts, setToasts] = useState([]);
  
 const [cart, setCart] = useState(() => {
     try { return JSON.parse(localStorage.getItem('cart')) ?? []; }
@@ -38,10 +39,10 @@ useEffect(() => {
   
   return (
     <div className='wrapper'>
-       {/* <Toast /> */}
+       <Toast toasts={toasts} setToasts={setToasts}/>
         <Header cart={cart} setCart={setCart} products={products}/>
         <main>
-          <Outlet context={{products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart} }/>
+          <Outlet context={{products, setProducts, category, selectedCategory, setSelectedCategory, cart, setCart, toasts, setToasts} }/>
         </main>
         {window.innerWidth <= 768 && (
           <CartMobile cart={cart} />

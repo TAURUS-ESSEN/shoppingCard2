@@ -134,6 +134,20 @@ html { scroll-behavior: smooth; }
   @apply bg-[#F3E9DC] text-primary border-1;
 }
 
+/* .toast {
+  @apply min-w-[140px] max-w-40 px-3 py-2 rounded-lg text-white shadow-lg pointer-events-auto whitespace-pre-line opacity-0 -translate-y-[6px] 
+  animate-[toastIn_0.25s_ease_forwards]
+} */
+.addToast, .removeToast {
+  @apply p-2 rounded-xl text-sm opacity-75 
+}
+.addToast {
+  @apply bg-green-600
+}
+
+.removeToast {
+  @apply bg-red-600
+}
 
 }
 

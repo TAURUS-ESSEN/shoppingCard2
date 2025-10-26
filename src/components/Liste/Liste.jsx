@@ -3,7 +3,7 @@ import styles from './liste.module.css';
 import { Link, useOutletContext } from 'react-router-dom';
 
 export default function Liste() {
-    const {products, selectedCategory, cart, setCart} = useOutletContext();
+    const {products, selectedCategory, cart, setCart, toasts, setToasts} = useOutletContext();
 
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -58,8 +58,31 @@ export default function Liste() {
         setCurrentPage(1);
         setVisible(val); 
     }
-    function addToCart(id) { setCart(prev => [...prev, id]); }
-    function removeFromCart(id) { setCart(prev => prev.filter(v => v !== id)); }
+    function addToCart(id, product, img) { 
+        setCart(prev => [...prev, id]);  
+        setToasts(prev=>([...prev, {message: (
+        <Link to={`shop/product/${id}`} className="text-white" state={{ product }}>
+        <div className='addToast flex gap-1 items-center justify-center'>
+            <span><img className="rounded" src={`/library/${img}`} width="70" height="70" /></span>
+            <span className='text-center'>Buch wurde hinzugefügt</span>
+        </div>
+        </Link>
+        )
+        }]));
+    }
+    function removeFromCart(id, product, img) { 
+        setCart(prev => prev.filter(v => v !== id)); 
+        setToasts(prev=>([...prev, {message: (
+        <Link to={`shop/product/${id}`} className="text-white" state={{ product }}>
+        <div className='removeToast flex gap-1 items-center justify-center'>
+            <span><img className="rounded"  src={`/library/${img}`} width="70" height="70" /></span>
+            <span className='text-center'>Buch wurde entfernt</span>
+        </div>
+        </Link>
+        )
+        }]));
+    
+    }
 
     const productsToRender = isMobile
         ? filteredProducts.slice(0, visible)    
@@ -79,7 +102,7 @@ export default function Liste() {
 
         <div className="flex flex-wrap gap-2 md:gap-4 justify-center mt-2">
             {productsToRender.map(product => (
-            <div className="card flex flex-col gap-2 max-w-[160px] md:max-w-[210px] bg-promo fade-up-soft border-2 border-transparent hover:border-secondary transition-transform duration-400"
+            <div className="card flex flex-col gap-2 max-w-40 md:max-w-[210px] bg-promo fade-up-soft border-2 border-transparent hover:border-secondary transition-transform duration-400"
                 key={product.id}>
                 <Link to={`product/${product.id}`} className={styles.link} state={{ product }}>
                 <img src={`/library/${product.image}`} alt={product.title} className="rounded-lg" />
@@ -87,11 +110,11 @@ export default function Liste() {
                 <div className="flex justify-between items-center p-1 gap-4 w-full">
                 <div className="text-2xl">{product.price} €</div>
                 {cart.includes(product.id) ? (
-                    <button onClick={() => removeFromCart(product.id)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
+                    <button onClick={() => removeFromCart(product.id, product, product.image)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
                     <img src="minus.webp" width="40" />
                     </button>
                 ) : (
-                    <button onClick={() => addToCart(product.id)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
+                    <button onClick={() => addToCart(product.id, product, product.image)} className="hover:cursor-pointer hover:scale-110 transition-transform duration-200">
                     <img src="add.webp" width="40" />
                     </button>
                 )}
