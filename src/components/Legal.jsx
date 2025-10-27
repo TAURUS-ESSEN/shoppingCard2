@@ -14,11 +14,11 @@ export default function Legal() {
   return (
     <section className="my-10 px-4">
       <nav className="sticky top-2 z-10 bg-white/70 backdrop-blur rounded-2xl shadow p-3 flex flex-wrap gap-3 mb-8">
-        <a href="#agb" className="px-4 py-2 rounded-xl border border-secondary text-secondary hover:bg-secondary hover:text-white transition">AGB</a>
-        <a href="#impressum" className="px-4 py-2 rounded-xl border border-secondary text-secondary hover:bg-secondary hover:text-white transition">Impressum</a>
-        <a href="#zahlung" className="px-4 py-2 rounded-xl border border-secondary text-secondary hover:bg-secondary hover:text-white transition">Zahlungsmethoden</a>
-        <a href="#datenschutz" className="px-4 py-2 rounded-xl border border-secondary text-secondary hover:bg-secondary hover:text-white transition">Datenschutz</a>
-        <a href="#versand" className="px-4 py-2 rounded-xl border border-secondary text-secondary hover:bg-secondary hover:text-white transition">Versand & Rückgabe</a>
+        <a href="#agb" className="legalStickyLink">AGB</a>
+        <a href="#impressum" className="legalStickyLink">Impressum</a>
+        <a href="#zahlung" className="legalStickyLink">Zahlungsmethoden</a>
+        <a href="#datenschutz" className="legalStickyLink">Datenschutz</a>
+        <a href="#versand" className="legalStickyLink">Versand & Rückgabe</a>
       </nav>
 
       {/* AGB */}
@@ -36,11 +36,11 @@ export default function Legal() {
         <h2>Impressum</h2>
         <div className="leading-relaxed text-secondary space-y-2">
           <p><span className="font-semibold">Buchhandlung Bookworm</span><br/>
-             Inhaber: Max Mustermann<br/>
-             Lindenstraße 42, 45127 Essen, Deutschland</p>
+            Inhaber: Max Mustermann<br/>
+            Lindenstraße 42, 45127 Essen, Deutschland</p>
           <p>Telefon: +49 160 123 455 999 · E-Mail: info@bookworm.de</p>
           <p>Umsatzsteuer-ID: DE123456789<br/>
-             Verantwortlich gemäß § 55 Abs. 2 RStV: Yevhen Reitarov</p>
+            Verantwortlich gemäß § 55 Abs. 2 RStV: Yevhen Reitarov</p>
           <p className="italic border-l-4 border-secondary pl-4">
             Hinweis: Alle Texte und Bilder auf dieser Website wurden ganz oder teilweise mit Hilfe von Künstlicher Intelligenz (KI) generiert. Der Inhalt dient ausschließlich zu Demonstrationszwecken und stellt kein reales Unternehmen dar.
           </p>

@@ -13,7 +13,7 @@ export default function Footer() {
                                 <a href="mailto:info@bookworm.de" aria-label="E-Mail an info@bookworm.de senden">info@bookworm.de</a>
                             </address>
                             <nav aria-label="Soziale Netzwerke">
-                                <ul className="flex gap-3">
+                                <ul className="flex gap-3 text-white">
                                 <li>
                                     <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook – externe Seite">
                                     <FontAwesomeIcon icon={faFacebook} size="2xl" aria-hidden="true" />
@@ -45,7 +45,7 @@ export default function Footer() {
                     </div>
                     
                     <nav aria-label="Rechtliches">
-                        <ul className="flex flex-wrap justify-center gap-4">
+                        <ul className="flex flex-wrap justify-center gap-4 ">
                             <li><Link to="/legal#versand">Versand & Rückgabe</Link></li>
                             <li><Link to="/legal#agb">AGB</Link></li>
                             <li><Link to="/legal#zahlung">Zahlungsmethoden</Link></li>

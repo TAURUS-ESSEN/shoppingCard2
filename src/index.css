@@ -164,6 +164,10 @@ html { scroll-behavior: smooth; }
   100% { transform: rotate(0deg); }
 }
 
+.legalStickyLink  {
+  @apply px-4 py-2 rounded-xl border border-secondary text-secondary hover:bg-secondary hover:text-white transition
+}
+
 }
 
 @layer utilities {
@@ -236,7 +240,7 @@ details[open] .open-icon { display: inline; }
 
     }
 
-    nav ul {
+    header nav ul {
         background-color: #ffffffe2;
         display: none;
         border-radius: 8px;

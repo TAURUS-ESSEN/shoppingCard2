@@ -101,7 +101,7 @@ export default function Cart() {
                   <div className= "flex md:items-center flex-col md:flex-row w-full justify-between ">
                       <div >
                         <div className="text-secondary max-w-100 leading-none md:leading-[1.4]">{product.title}</div>
-                        <div className='hidden md:block'>von <span className="text-secondary">{product.autor}</span></div>
+                        <div className=' md:block'>von <span className="text-secondary">{product.autor}</span></div>
                       </div>
                     {/* <div className={styles.productPrice}>${product.price.toFixed(2)}</div> */}
                     <div className={styles.productPrice}>{product.price} €</div>
