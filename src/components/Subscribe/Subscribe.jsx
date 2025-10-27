@@ -4,12 +4,18 @@ export default function Subscribe() {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(false);
+  const [botField, setBotField] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
     setMsg("");
     setLoading(true);
 
+    if (botField.trim() !== "") {
+      setMsg("Spam erkannt. Formular nicht gesendet.");
+      setLoading(false);
+      return;
+    }
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -38,6 +44,18 @@ export default function Subscribe() {
         onSubmit={handleSubmit}
         className="flex flex-col w-full md:max-w-150 px-3 md:p-3 md:flex-row gap-2 mt-3 justify-center items-center md:bg-promo rounded-xl   md:shadow-medium"
       >
+
+        <input
+          type="text"
+          name="website"
+          value={botField}
+          onChange={(e) => setBotField(e.target.value)}
+          tabIndex="-1"
+          autoComplete="off"
+          className="hidden"
+          aria-hidden="true"
+        />
+        
         <input
           type="email"
           value={email}

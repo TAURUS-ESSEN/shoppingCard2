@@ -1,11 +1,9 @@
-import { useLocation, useParams, useOutletContext, Link, useNavigate } from "react-router-dom";
-
- 
+import { useLocation, useParams, useOutletContext,  useNavigate } from "react-router-dom";
 
 export default function ProductPage() {
     const navigate = useNavigate();
     const { productId } = useParams();
-    const {products, cart, selectedCategory, setSelectedCategory, setCart, toasts, setToasts} =  useOutletContext();
+    const {products, cart, setSelectedCategory, setCart, setToasts} =  useOutletContext();
     const location = useLocation();
     let product = location.state?.product;
 
