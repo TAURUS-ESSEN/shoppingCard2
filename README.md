@@ -10,7 +10,7 @@ Das Design wurde von mir vollständig in **Figma** entworfen → [Design ansehen
 
 ### 📸 Screenshots
 
-<img src="src/assets/bookworm-preview.png" alt="Bookworm – responsive preview" width="850"/>
+<img src="src/assets/bookworm-preview.webp" alt="Bookworm – responsive preview" width="850"/>
 
 ---
 
