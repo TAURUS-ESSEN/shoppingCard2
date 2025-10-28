@@ -45,16 +45,18 @@ export default function ProductPage() {
     return (
         <section className="mt-4">
         <div className="flex flex-col md:flex-row justify-center gap-4 px-2">
-            <div className="card max-w-[250px] md:min-w-[220px] lg:min-w-[270px] rounded-xl shadow fade-up-soft md:self-start ">
+            <div className="card max-w-[250px] md:min-w-[220px] lg:min-w-[270px] m-auto rounded-xl shadow fade-up-soft md:self-start ">
                 <img src={`/library/${product.image}`} alt={product.title} className="rounded-lg"/>
             </div>
             <div className="fade-up-soft flex flex-col gap-2 lg:gap-6">
                 <div className="">
                     <h2>{product.title}</h2>
                 </div>
-                {/* <div className={styles.price}>${product.price.toFixed(2)}</div> */}
                 <div className="text-lg ">von:<span className="font-medium md:font-semibold text-secondary"> {product.autor}</span></div>
-                <div className="text-lg border-b border-promo ">Category:<span className="font-semibold text-secondary"> <button onClick={() => goToCategory(product.category)}>{product.category}</button></span></div>
+                <div className="text-lg border-b border-promo ">
+                    Category:<span className="font-semibold text-secondary"> 
+                    <button onClick={() => goToCategory(product.category)}>{product.category}</button></span>
+                </div>
                 <div className="font-bold text-2xl lg:text-4xl text-secondary">${product.price}</div>
                 <div className="bg-tertiary p-2 rounded-lg text-lg ">{product.description}</div>
                 <div>

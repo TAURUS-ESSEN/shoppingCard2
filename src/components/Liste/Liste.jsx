@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import styles from './liste.module.css';
 import { Link, useOutletContext } from 'react-router-dom';
 
 export default function Liste() {
-    const {products, selectedCategory, cart, setCart, toasts, setToasts} = useOutletContext();
+    const {products, selectedCategory, cart, setCart, setToasts} = useOutletContext();
 
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -93,7 +92,7 @@ export default function Liste() {
     return (
         <section>
         <div className="hidden lg:block">
-            <label htmlFor="select" className={styles.selector}>Produkte je Seite</label>
+            <label htmlFor="select" className="px-2">Produkte je Seite</label>
             <select id="select" className="border rounded p-1"
                     onChange={changeItemsPerPage} value={itemsPerPage} aria-label="Produkte pro Seite wählen">
             <option value="8">8</option>
@@ -108,7 +107,7 @@ export default function Liste() {
                 key={product.id}>
                 <Link 
                     to={`product/${product.id}`} 
-                    className={styles.link} 
+                    className="flex flex-col justify-center w-full"
                     state={{ product }} 
                     aria-label={`Zum Produkt ${product.title}`}
                 >
@@ -160,7 +159,7 @@ export default function Liste() {
                 <button 
                     type="button"
                     key={page}
-                    className={`${styles.pageButton} ${page === currentPage ? styles.activePage : ''}`}
+                    // className={`${styles.pageButton} ${page === currentPage ? styles.activePage : ''}`}
                     onClick={() => changePage(page)}
                     disabled={page === currentPage}>
                 {page}

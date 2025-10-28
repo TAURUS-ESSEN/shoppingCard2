@@ -25,7 +25,6 @@ export default function Category() {
     const isAll = selectedCategory.length === category.length;
     const currentMobileValue = isAll ? 'all' : (selectedCategory[0] ?? 'all');
 
-
     return (
         <section>
         {category.length > 0 && (

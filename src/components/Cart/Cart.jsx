@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import styles from './cart.module.css';
 import { useOutletContext, Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark} from '@fortawesome/free-solid-svg-icons';
 import Checkout from '../Modal/Checkout';
 
 export default function Cart() {
-  const {products, cart, setCart, toasts, setToasts}  = useOutletContext();
+  const {products, cart, setCart, setToasts}  = useOutletContext();
   const [modal, setModal] = useState({isOpen: false});
   const [cartQ, setCartQ] = useState(() => {
     let saved = {};
@@ -15,8 +14,8 @@ export default function Cart() {
     return ids.map(id => ({ id, qty: Math.max(1, Number(saved[id]) || 1) }));
   });
 
-    const openModal = () => setModal({isOpen: true});
-    const closeModal = () => setModal({isOpen: false});
+  const openModal = () => setModal({isOpen: true});
+  const closeModal = () => setModal({isOpen: false});
   let sumBeforeShipping = 0;
   let total = 0;
 
@@ -46,7 +45,9 @@ export default function Cart() {
     setToasts(prev=>([...prev, {message: (
       <Link to={`shop/product/${product.id}`} className="text-white" state={{ product }}>
         <div className='removeToast flex gap-1 items-center justify-center'>
-          <span className='w-full'><img className="rounded" src={`/library/${product.image}`} width="70" height="70" /></span>
+          <span className='w-full'>
+            <img className="rounded" src={`/library/${product.image}`} width="70" height="70" loading="lazy"/>
+          </span>
           <span className='text-center'>{product.title.slice(0,20)}.. wurde entfernt</span>
         </div>
       </Link>
@@ -95,26 +96,42 @@ export default function Cart() {
                 <div className="flex md:items-center gap-4 w-full p-1 md:p-2 border border-[#03038635] even:bg-tertiary rounded-md" key={id}>
                   <Link to={`/shop/product/${product.id}`}>
                       <div className="card max-w-[150px]">
-                        <img src={`/library/${product.image}`} alt={product.title} className='rounded-lg'/>
+                        <img 
+                          src={`/library/${product.image}`} 
+                          alt={product.title} 
+                          className='rounded-lg'
+                          loading="lazy"
+                          width="120"
+                          height="150"
+                        />
                       </div>
                   </Link>
-                  <div className= "flex lg:items-center flex-col lg:flex-row w-full justify-between ">
+                  <div className="flex lg:items-center flex-col lg:flex-row w-full justify-between">
                       <div >
                         <div className="text-secondary max-w-100 leading-none md:leading-[1.4]">{product.title}</div>
                         <div className=' md:block'>von <span className="text-secondary">{product.autor}</span></div>
                       </div>
-                    {/* <div className={styles.productPrice}>${product.price.toFixed(2)}</div> */}
-                    <div className={styles.productPrice}>{product.price} €</div>
+                    <div className="text-primary">{product.price} €</div>
                     <div className='flex items-center justify-between md:gap-4'>
-                      <div className=" border border-primary  rounded-sm">
-                        <button onClick={() => dec(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">-</button>
+                      <div className="border border-primary  rounded-sm">
+                        <button 
+                          type="button" 
+                          onClick={() => dec(id)} 
+                          className="bg-primary px-3 py-1 text-white hover:bg-secondary"
+                        >-</button>
                         <span className="px-3">{qty}</span>
-                        <button onClick={() => inc(id)} className="bg-primary px-3 py-1   text-white hover:bg-secondary">+</button>
+                        <button 
+                          type="button" 
+                          onClick={() => inc(id)} 
+                          className="bg-primary px-3 py-1 text-white hover:bg-secondary"
+                        >+</button>
                       </div>
                       <div>
-                        <button onClick={() => deleteItem(product)} className={styles.deleteItem}>
+                        <button 
+                          type="button" 
+                          onClick={() => deleteItem(product)} 
+                          className="mr-4 bg-transparent text-sm transition-transform duration-400 hover:scale-115">
                           <FontAwesomeIcon icon={faCircleXmark} className="text-secondary fa-2xl hover:text-red-600" aria-hidden="true"/>
-                          <span className="sr-only">Удалить</span>
                         </button>
                       </div>
                     </div>
@@ -124,13 +141,13 @@ export default function Cart() {
             })}
           </div>
           <div className="order-1 md:order-2 min-w-[300px] max-h-[300px] bg-primary text-white p-4 flex flex-col justify-center rounded-xl">
-            <div className={styles.totalFields}>
+            <div className="flex justify-between">
               <span>Zwischensumme:</span> <span> {sumBeforeShipping.toFixed(2)} €</span>
             </div>
-            <div className={styles.totalFields}>
+            <div className="flex justify-between">
               <span>Versant*:</span><span> {shippingCost.toFixed(2)} €</span>
             </div>
-            <div className={styles.totalSumme}>
+            <div className="flex justify-between border-t mt-4">
               <span>Summe:</span><span>{total.toFixed(2)} €</span>
             </div>
             <div className='flex flex-col justify-center items-center'>
@@ -143,7 +160,7 @@ export default function Cart() {
             </div>
           </div>
       </div>
-      ) : (<div className={styles.emptyCart}><h2>Warenkorb ist leer</h2></div>)
+      ) : (<div className="flex justify-center items-center text-2xl"><h3>Warenkorb ist leer</h3></div>)
     }
     {modal.isOpen && (
       <Checkout closeModal={closeModal} />
