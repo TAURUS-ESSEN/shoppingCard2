@@ -1,33 +1,14 @@
 @import "tailwindcss";
 
 :root {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    --wrap-pad: 1rem;
+  --wrap-pad: 1rem;
 }
-
-html { scroll-behavior: smooth; }
 
 @font-face {
   font-family: "AnekLatin";
   src: url("/Fonts/AnekLatin-VariableFont.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
-}
-
-.wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--wrap-pad);
-    border: 1px solid rgb(204, 203, 203);
-    box-shadow: 0 1px 4px rgb(204, 203, 203);
-}
-
-.trick {
-  margin-inline: calc(-1 * var(--wrap-pad));
-  width: calc(100% + calc(2 * var(--wrap-pad)));
-  padding: 1rem;
 }
 
 @keyframes fadeUp {
@@ -60,15 +41,15 @@ html { scroll-behavior: smooth; }
   --shadow-soft: 0 1px 4px rgb(204, 203, 203);
   --shadow-medium: 0 0 4px rgb(134, 134, 134);
 }
+
 @layer base {
-  body, input, button {
-    font-family: 'AnekLatin', monospace;
+  
+  html {
+    scroll-behavior: smooth;
   }
 
-  header {
-    margin-inline: calc(-1 * var(--wrap-pad));
-    width: calc(100% + calc(2 * var(--wrap-pad)));
-    padding: 0 1rem;
+  body, input, button {
+    font-family: 'AnekLatin', monospace;
   }
 
   ::placeholder {
@@ -90,7 +71,7 @@ html { scroll-behavior: smooth; }
   }
 
   h2 {
-    @apply text-2xl md:text-4xl font-medium md:font-bold text-primary my-1 
+    @apply my-1 text-2xl md:text-3xl lg:text-4xl font-medium md:font-bold text-primary;
   }
 
   button:hover {
@@ -102,15 +83,16 @@ html { scroll-behavior: smooth; }
   }
 
   .about img {
-    @apply rounded-xl md:max-w-[500px]
+    @apply rounded-xl md:max-w-[500px];
   } 
 
   section {
-    @apply md:mt-4
+    @apply md:mt-4;
   }
 }
 
 @layer components {
+
   .btn {
     @apply min-h-11 flex items-center justify-center flex-wrap gap-2 p-2
     bg-primary rounded-xl text-base md:text-2xl text-white font-medium shadow-medium
@@ -118,7 +100,7 @@ html { scroll-behavior: smooth; }
   }
 
   .card {
-    @apply bg-amber-100 flex items-center rounded-xl justify-center p-1 shadow-medium
+    @apply bg-amber-100 flex rounded-xl justify-center p-1 shadow-medium
   }
 
   .pageButtons {
@@ -126,7 +108,7 @@ html { scroll-behavior: smooth; }
 }
 
 .pageButtons button {
-  @apply bg-primary text-white px-4 py-2 rounded-md border-0 transition duration-500;
+  @apply px-4 py-2 bg-primary text-white rounded-md border-0 transition duration-500;
 }
 
 .pageButtons button:hover {
@@ -134,7 +116,7 @@ html { scroll-behavior: smooth; }
 }
 
 .pageButtons button:disabled {
-  @apply bg-[#F3E9DC] text-primary border;
+  @apply bg-promo text-primary border;
 }
 
 .addToast, .removeToast {
@@ -149,7 +131,8 @@ html { scroll-behavior: smooth; }
 }
 
 .categoryButton {
-  @apply flex items-center border-2 border-secondary text-secondary px-3 md:px-6 py-3 rounded-2xl font-medium  shadow-medium hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1
+  @apply flex items-center px-3 md:px-6 py-3 border-2 border-secondary text-secondary 
+  rounded-2xl font-medium  shadow-medium hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1
 }
 
 .shake:hover img, .shake:hover div  {
@@ -168,6 +151,11 @@ html { scroll-behavior: smooth; }
   @apply px-4 py-2 rounded-xl border border-secondary text-secondary hover:bg-secondary hover:text-white transition
 }
 
+  .trick {
+      @apply p-4;
+      margin-inline: calc(-1 * var(--wrap-pad));
+      width: calc(100% + calc(2 * var(--wrap-pad)));
+  }
 }
 
 @layer utilities {
@@ -196,6 +184,7 @@ html { scroll-behavior: smooth; }
     .animate-fade-up, .animate-fade-up-200, .animate-fade-up-400, .animate-zoom-in-slow {
       animation: none !important;
     }
+
   }
 
   .fade-up-soft {
@@ -237,7 +226,6 @@ details[open] .open-icon { display: inline; }
 
     header {
       position: relative;
-
     }
 
     header nav ul {

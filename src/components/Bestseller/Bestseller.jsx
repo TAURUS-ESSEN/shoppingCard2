@@ -4,7 +4,7 @@ export default function Bestseller({products}) {
     return (
         <section className="my-8 relative text-center">
             <div className="hidden md:block absolute -bottom-2 left-0 w-full h-[120px] bg-secondary animate-fade-up-200"></div>
-            <h2 className="uppercase animate-fade-up-200">Bestseller</h2>
+            <h2 className="uppercase animate-fade-up-200 mb-4">Bestseller</h2>
 
             <ul className="flex flex-wrap justify-center gap-3 md:gap-5 relative z-10" role="list">
                 {products.map((product) => (

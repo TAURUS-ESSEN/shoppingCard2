@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import CartMobile from './components/Cart/CartMobile'
-import { Outlet } from 'react-router-dom'
 import Toast from './components/Toast/Toast';
-import './App.css'
+// import './App.css'
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -36,9 +36,9 @@ useEffect(() => {
     setCategory(uniqArray)
     setSelectedCategory(uniqArray)
   },[products])
-  
+
   return (
-    <div className='wrapper'>
+    <div className='wrapper max-w-300 m-auto px-4 border border-gray-300 shadow-soft'>
         <Toast toasts={toasts} setToasts={setToasts}/>
         <Header cart={cart} setCart={setCart} products={products}/>
         <main>

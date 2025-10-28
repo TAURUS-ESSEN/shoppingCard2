@@ -92,7 +92,7 @@ export default function Liste() {
 
     return (
         <section>
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
             <label htmlFor="select" className={styles.selector}>Produkte je Seite</label>
             <select id="select" className="border rounded p-1"
                     onChange={changeItemsPerPage} value={itemsPerPage} aria-label="Produkte pro Seite wählen">

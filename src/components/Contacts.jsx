@@ -1,6 +1,6 @@
 export default function Contacts() {
     return (
-        <section className="flex flex-col md:flex-row gap-4 md:gap-20 ">
+        <section className="flex flex-col md:flex-row gap-4 md:gap-10 lg:gap-20 ">
             <div className="flex flex-col">
                 <h2>Hier finden Sie uns</h2>
                 <address className="not-italic">
@@ -14,7 +14,7 @@ export default function Contacts() {
             </div>
             <div className="flex flex-col flex-end items-center md:flex-row gap-4">
                 <div className="relative shake">
-                    <div className="absolute md:-top-35 ">
+                    <div className="absolute md:-top-25 lg:-top-35 ">
                         <img src="openTime.webp" alt="" aria-hidden="true" />
                     </div>
                     <div className="md:max-w-100 md:max-h-60 flex flex-col gap-2 p-6 rounded-xl 

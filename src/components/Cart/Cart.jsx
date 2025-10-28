@@ -87,18 +87,18 @@ export default function Cart() {
         <h2 className='text-center' id="top">Warenkorb</h2>
       {cart.length !== 0 ? (
         <div className="flex flex-col md:flex-row gap-4 text-xl ">
-          <div className='order-2 md:order-1 flex flex-col gap-2 w-full'>
+          <div className='order-2 md:order-1 flex flex-col  gap-2 w-full'>
             {cartQ.map(({ id, qty }) => {
               const product = products.find(p => p.id === id);
               if (!product) return null;
               return (
-                <div className="flex md:items-center gap-4 w-full  p-1 md:p-2 border border-[#03038635] even:bg-tertiary rounded-md" key={id}>
+                <div className="flex md:items-center gap-4 w-full p-1 md:p-2 border border-[#03038635] even:bg-tertiary rounded-md" key={id}>
                   <Link to={`/shop/product/${product.id}`}>
                       <div className="card max-w-[150px]">
                         <img src={`/library/${product.image}`} alt={product.title} className='rounded-lg'/>
                       </div>
                   </Link>
-                  <div className= "flex md:items-center flex-col md:flex-row w-full justify-between ">
+                  <div className= "flex lg:items-center flex-col lg:flex-row w-full justify-between ">
                       <div >
                         <div className="text-secondary max-w-100 leading-none md:leading-[1.4]">{product.title}</div>
                         <div className=' md:block'>von <span className="text-secondary">{product.autor}</span></div>

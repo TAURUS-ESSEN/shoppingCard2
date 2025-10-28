@@ -10,9 +10,9 @@ export default function Header({cart, products}) {
 
     return (
         <>
-        <header className="flex items-center justify-around gap-4 shadow-soft ">
+        <header className="mx-[calc(-1*var(--wrap-pad))] w-[calc(100%+2*var(--wrap-pad))] flex items-center justify-around gap-4 px-4 shadow-soft ">
 
-            <div className="max-w-[60px] md:min-w-20 py-2">
+            <div className="max-w-[60px] md:min-w-20 py-2 ">
                 <Link to='/' className="flex shake" aria-label="Startseite">
                     <img src="/logo.webp" width="100" height="100" alt="Bookworm Logo" />
                 </Link>
@@ -31,14 +31,14 @@ export default function Header({cart, products}) {
                 placeholder="Produkt suchen" 
                 onChange={(e)=>searchProduct(e)} 
                 value={search} 
-                className="min-w-45 md:min-w-85 px-4 border border-secondary rounded-lg shadow-medium "
+                className="min-w-45 md:min-w-85 px-4  border border-secondary rounded-lg shadow-medium "
             />
             <label for="menu-toggler" role="button" tabindex="0">
                 <span className="open text-secondary">☰ </span>
                 <span className="close text-secondary border rounded">☰</span>
             </label>
             
-            <div className="hidden md:flex min-h-11 px-2 md:px-6 hover:scale-105 duration-300">
+            <div className="hidden lg:flex min-h-11 px-2 lg:px-6 hover:scale-105 duration-300 ">
                 <Link to='cart' className="flex items-center relative" aria-label={`Warenkorb öffnen (${cart.length} Artikel)`}>
                     <span>
                         <img src="/cart.webp" width="70" alt="" aria-hidden="true"/>
