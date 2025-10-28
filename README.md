@@ -15,7 +15,7 @@ Das Design wurde von mir vollständig in **Figma** entworfen → [Design ansehen
 ---
 ### 📸 Figma
 
-<img src="src/assets/figma-preview.png" alt="Bookworm – Figma preview" width="850"/>
+<img src="src/assets/figma.png" alt="Bookworm – Figma preview" width="850"/>
 
 ---
 
