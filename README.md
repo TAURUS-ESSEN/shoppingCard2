@@ -13,6 +13,11 @@ Das Design wurde von mir vollständig in **Figma** entworfen → [Design ansehen
 <img src="src/assets/bookworm-preview.png" alt="Bookworm – responsive preview" width="850"/>
 
 ---
+### 📸 Figma
+
+<img src="src/assets/figma-preview.png" alt="Bookworm – Figma preview" width="850"/>
+
+---
 
 ## 🚀 Features
 
