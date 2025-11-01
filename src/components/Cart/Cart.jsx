@@ -87,8 +87,8 @@ export default function Cart() {
     <section>
         <h2 className='text-center' id="top">Warenkorb</h2>
       {cart.length !== 0 ? (
-        <div className="flex flex-col md:flex-row gap-4 text-xl animate-fade-up">
-          <div className='order-2 md:order-1 flex flex-col  gap-2 w-full'>
+        <div className="flex flex-col md:flex-row gap-4 text-xl ">
+          <div className='order-2 md:order-1 flex flex-col  gap-2 w-full animate-fade-left'>
             {cartQ.map(({ id, qty }) => {
               const product = products.find(p => p.id === id);
               if (!product) return null;

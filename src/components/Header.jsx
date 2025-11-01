@@ -10,8 +10,7 @@ export default function Header({cart, products}) {
     return (
         <>
         <header className="mx-[calc(-1*var(--wrap-pad))] w-[calc(100%+2*var(--wrap-pad))] flex items-center justify-around gap-4 px-4 shadow-soft ">
-
-            <div className="max-w-[60px] md:min-w-20 py-2 ">
+            <div className="max-w-15 md:min-w-20 py-2 ">
                 <Link to='/' className="flex shake" aria-label="Startseite">
                     <img src="/logo.webp" width="100" height="100" alt="Bookworm Logo" />
                 </Link>
@@ -48,6 +47,7 @@ export default function Header({cart, products}) {
                 </Link>
             </div>
         </header>
+
             <div className="searchResults"> 
                 {search!=='' && (
                     products.map(product=>{
