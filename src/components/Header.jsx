@@ -1,9 +1,8 @@
-import { Link, useLocation, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 export default function Header({cart, products}) {
     const [search, setSearch] = useState('');
-    const location = useLocation();
     function searchProduct(e) {
         setSearch(e.target.value)
     }
@@ -31,7 +30,7 @@ export default function Header({cart, products}) {
                 placeholder="Produkt suchen" 
                 onChange={(e)=>searchProduct(e)} 
                 value={search} 
-                className="min-w-45 md:min-w-85 px-4  border border-secondary rounded-lg shadow-medium "
+                className="min-w-45 md:min-w-85 px-4 border border-secondary rounded-lg shadow-medium "
             />
             <label for="menu-toggler" role="button" tabindex="0">
                 <span className="open text-secondary">☰ </span>
@@ -55,7 +54,7 @@ export default function Header({cart, products}) {
                     if (search.length >= 3 && product.title.match(new RegExp(search, "i"))) {
                         return (
                             <div className="odd:bg-gray-100 hover:bg-tertiary p-1 ">
-                                <Link to={`shop/product/${product.id}`} state={{ product }}  onClick={() => setSearch('')}>
+                                <Link to={`shop/product/${product.id}`} state={{ product }} onClick={() => setSearch('')}>
                                     {product.title} 
                                 </Link>
                             </div>

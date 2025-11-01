@@ -87,7 +87,7 @@ export default function Cart() {
     <section>
         <h2 className='text-center' id="top">Warenkorb</h2>
       {cart.length !== 0 ? (
-        <div className="flex flex-col md:flex-row gap-4 text-xl ">
+        <div className="flex flex-col md:flex-row gap-4 text-xl animate-fade-up">
           <div className='order-2 md:order-1 flex flex-col  gap-2 w-full'>
             {cartQ.map(({ id, qty }) => {
               const product = products.find(p => p.id === id);
@@ -140,7 +140,7 @@ export default function Cart() {
               );
             })}
           </div>
-          <div className="order-1 md:order-2 min-w-[300px] max-h-[300px] bg-primary text-white p-4 flex flex-col justify-center rounded-xl">
+          <div className="order-1 md:order-2 min-w-[300px] max-h-[300px] bg-primary text-white p-4 flex flex-col justify-center rounded-xl animate-fade-right">
             <div className="flex justify-between">
               <span>Zwischensumme:</span> <span> {sumBeforeShipping.toFixed(2)} €</span>
             </div>

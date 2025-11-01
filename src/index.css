@@ -16,6 +16,16 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 @keyframes zoomInSlow {
   from { transform: scale(1.05); }
   to   { transform: scale(1); }
@@ -60,14 +70,13 @@
     @apply border rounded-lg p-2
   }
 
-  a {
+  a, nav li {
     color: var(--color-secondary);
+    transition: 0.5s ease-in-out;
   }
 
-  nav a:hover, .active:hover {
-    color: var(--color-primary);
-    transition: 0.4s ease;
-    transform: scale(1.1)
+  nav a:hover, nav li:hover, .active:hover {
+    transform: scale(1.05)
   }
 
   h2 {
@@ -96,7 +105,7 @@
   .btn {
     @apply min-h-11 flex items-center justify-center flex-wrap gap-2 p-2
     bg-primary rounded-xl text-base md:text-2xl text-white font-medium shadow-medium
-    hover:cursor-pointer hover:bg-secondary transition duration-300
+    hover:cursor-pointer hover:bg-secondary transition duration-300 ease-in-out
   }
 
   .card {
@@ -161,7 +170,7 @@
 @layer utilities {
   
   .active {
-    @apply md:bg-promo2 font-semibold text-secondary p-1 md:p-3 rounded-xl flex justify-center items-center shadow-soft
+    @apply md:bg-promo2 font-semibold text-secondary p-1 md:p-3 rounded-xl flex justify-center items-center shadow-soft 
   }
 
   .shadow {
@@ -176,12 +185,15 @@
   .animate-fade-up-200     { animation: fadeUp .8s ease-out .2s both; }
   .animate-fade-up-400     { animation: fadeUp .8s ease-out .4s both; }
 
+  .animate-fade-left         { animation: fadeLeft .8s ease-out both; }
+  .animate-fade-right         { animation: fadeRight .8s ease-out both; }
+
   .animate-zoom-in-slow    { animation: zoomInSlow 2.5s ease-out both; }
 
   .will-transform { will-change: transform; }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-fade-up, .animate-fade-up-200, .animate-fade-up-400, .animate-zoom-in-slow {
+    .animate-fade-up, .animate-fade-up-200, .animate-fade-up-400, .animate-zoom-in-slow, .animate-fade-left, .animate-fade-right   {
       animation: none !important;
     }
 

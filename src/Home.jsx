@@ -27,7 +27,7 @@ export default function Home () {
                     <h1 className="text-xl md:text-4xl lg:text-6xl text-primary font-semibold animate-fade-up">ZEIT <br /> FÜR EIN <br />  GUTES BUCH.</h1>
                     <p className="animate-fade-up-200">
                         <button 
-                            className="btn  border-2 border-white w-30 md:w-50 md:p-4 leading-none animate-fade-up-400" 
+                            className="btn  border-2 border-white w-30 md:w-50 md:p-4 leading-none animate-fade-up-400 hover:scale-105" 
                             onClick={resetFilter}
                             aria-label="Zum Shop - alle Kategorien anzeigen"
                         >

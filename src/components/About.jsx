@@ -2,7 +2,7 @@ export default function About() {
     return (
         <section className="flex flex-col lg:flex-row gap-4 about leading-relaxed ">
             <div>
-                <article className="flex flex-col gap-2 p-4">
+                <article className="flex flex-col gap-2 p-4 animate-fade-left">
                     <h2>Über uns</h2>
                     <p> Willkommen bei <span className="text-secondary font-semibold">Bookworm</span> - einem traditionsreichen, gemütlichen Buchladen im Herzen der Stadt. Seit über zwanzig Jahren begleiten wir unsere Kundinnen und Kunden auf ihrer Reise durch die Welt der Bücher. Bei uns finden Sie nicht nur Bestseller und Klassiker, sondern auch persönliche Empfehlungen, die perfekt zu Ihnen passen.</p>
                     <div className="">
@@ -20,7 +20,7 @@ export default function About() {
                 </article>
             </div>
             <div> 
-                <article className="flex flex-col gap-2 p-4 bg-promo rounded-xl">
+                <article className="flex flex-col gap-2 p-4 bg-promo rounded-xl animate-fade-right">
                     <h2>Unsere Versprechen</h2>
                     <div>
                         <img src="bookstore.webp"  alt="Leseecke mit Tisch und Büchern im Bookworm" loading="lazy"/>
